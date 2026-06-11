@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Detail Klasifikasi{% endblock %}
+
+{% block content %}
+<section aria-labelledby="judul" data-warga-id="{{ warga_id }}">
+  <a href="/hasil" class="text-sm text-brand-700 hover:underline">&larr; Kembali ke daftar</a>
+
+  <div id="loading" class="flex items-center gap-3 text-slate-500 py-10 justify-center">
+    <span class="inline-block w-5 h-5 border-2 border-slate-300 border-t-brand-700 rounded-full animate-spin"></span>
+    Memuat detail…
+  </div>
+
+  <div id="notfound" class="hidden text-center py-12 text-slate-500 bg-white rounded-xl border border-dashed border-slate-300">
+    Data warga tidak ditemukan.
+  </div>
+
+  <div id="detail" class="hidden mt-3 space-y-6">
+    <div class="bg-white rounded-xl border border-slate-200 p-6">
+      <h1 id="judul" class="text-2xl font-bold text-slate-900" data-field="nama">–</h1>
+      <div class="mt-4 flex items-center gap-6 flex-wrap">
+        <div>
+          <p class="text-xs uppercase tracking-wide text-slate-400">Skor Prioritas</p>
+          <p class="text-4xl font-bold text-brand-700" data-field="skor">–</p>
+        </div>
+        <div>
+          <p class="text-xs uppercase tracking-wide text-slate-400">Kategori</p>
+          <p data-field="kategori" class="mt-1 inline-block px-3 py-1 rounded-full text-sm font-semibold">–</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4" id="data-mentah"></div>
+
+    <div class="bg-white rounded-xl border border-slate-200 p-6">
+      <h2 class="text-lg font-semibold text-slate-900 mb-1">Penjelasan Keputusan</h2>
+      <p class="text-sm text-slate-500 mb-5">Kontribusi tiap faktor terhadap skor akhir (UC-03 — transparansi).</p>
+      <ul id="faktor" class="space-y-4"></ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>BansosApp.initDetail();</script>
+{% endblock %}

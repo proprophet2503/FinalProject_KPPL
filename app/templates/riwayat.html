@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Riwayat Penerima Bantuan{% endblock %}
+
+{% block content %}
+<section aria-labelledby="judul">
+  <h1 id="judul" class="text-2xl font-bold text-slate-900 mb-1">Riwayat Penerima Bantuan</h1>
+  <p class="text-slate-600 mb-6">Pilih periode untuk melihat penerima bantuan beserta skor historisnya.</p>
+
+  <div class="flex items-center gap-3 mb-6 flex-wrap">
+    <label for="periode" class="text-sm font-medium text-slate-700">Periode Bantuan</label>
+    <select id="periode"
+            class="rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-brand-600 outline-none">
+      <option value="">— Memuat periode… —</option>
+    </select>
+  </div>
+
+  <div id="empty" class="hidden text-center py-12 text-slate-500 bg-white rounded-xl border border-dashed border-slate-300">
+    Tidak ada data penerima untuk periode ini.
+  </div>
+
+  <div id="tabel-wrap" class="hidden overflow-x-auto bg-white rounded-xl border border-slate-200">
+    <table class="w-full text-sm">
+      <thead class="bg-slate-100 text-slate-600 text-left">
+        <tr>
+          <th class="px-4 py-3 font-semibold">#</th>
+          <th class="px-4 py-3 font-semibold">Nama Kepala Keluarga</th>
+          <th class="px-4 py-3 font-semibold text-right">Skor Prioritas</th>
+        </tr>
+      </thead>
+      <tbody id="tbody" class="divide-y divide-slate-100"></tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>BansosApp.initRiwayat();</script>
+{% endblock %}
