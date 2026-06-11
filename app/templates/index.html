@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Prioritas Bantuan{% endblock %}
+
+{% block content %}
+<section aria-labelledby="judul" class="space-y-8">
+  <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+    <h1 id="judul" class="text-2xl font-bold text-slate-900">
+      Sistem Penentu Prioritas Penerima Bantuan
+    </h1>
+    <p class="mt-2 text-slate-600 max-w-2xl">
+      Alat bantu pengurus RT/RW untuk menilai kelayakan calon penerima bantuan
+      sosial secara objektif dan transparan. Masukkan data rumah tangga, sistem
+      menghitung skor prioritas (0–100) beserta penjelasan faktor dominannya.
+    </p>
+  </div>
+
+  <div class="grid sm:grid-cols-3 gap-4" id="ringkasan" aria-live="polite">
+    <div class="bg-white rounded-xl border border-slate-200 p-5">
+      <p class="text-xs uppercase tracking-wide text-slate-400">Total Warga Dinilai</p>
+      <p class="text-3xl font-bold text-slate-900 mt-1" data-stat="total">–</p>
+    </div>
+    <div class="bg-white rounded-xl border border-slate-200 p-5">
+      <p class="text-xs uppercase tracking-wide text-slate-400">Sangat Layak</p>
+      <p class="text-3xl font-bold text-emerald-600 mt-1" data-stat="sangat">–</p>
+    </div>
+    <div class="bg-white rounded-xl border border-slate-200 p-5">
+      <p class="text-xs uppercase tracking-wide text-slate-400">Skor Tertinggi</p>
+      <p class="text-3xl font-bold text-brand-700 mt-1" data-stat="max">–</p>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap gap-3">
+    <a href="/input" class="px-5 py-3 bg-brand-700 text-white rounded-lg font-medium hover:bg-brand-600 transition">
+      + Input Data Rumah Tangga
+    </a>
+    <a href="/hasil" class="px-5 py-3 bg-white border border-slate-300 rounded-lg font-medium hover:bg-slate-100 transition">
+      Lihat Hasil Klasifikasi
+    </a>
+    <a href="/riwayat" class="px-5 py-3 bg-white border border-slate-300 rounded-lg font-medium hover:bg-slate-100 transition">
+      Riwayat Penerima
+    </a>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>BansosApp.initDashboard();</script>
+{% endblock %}

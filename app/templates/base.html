@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Sistem Prioritas Bantuan{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 600: "#0f766e", 700: "#115e59", 50: "#f0fdfa" },
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="/static/css/app.css" />
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800">
+  <header class="bg-brand-700 text-white shadow">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-semibold text-lg">
+        <span aria-hidden="true">🏠</span>
+        <span>Prioritas Bantuan RT</span>
+      </a>
+      <nav aria-label="Navigasi utama" class="flex gap-1 text-sm">
+        <a href="/input" class="px-3 py-2 rounded hover:bg-brand-600 transition">Input Data</a>
+        <a href="/hasil" class="px-3 py-2 rounded hover:bg-brand-600 transition">Hasil Klasifikasi</a>
+        <a href="/riwayat" class="px-3 py-2 rounded hover:bg-brand-600 transition">Riwayat</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="max-w-5xl mx-auto px-4 py-6 text-center text-xs text-slate-400">
+    Prototipe KPPL — Sistem AI Penentu Prioritas Penerima Bantuan (Skala Mikro).
+    Hasil bersifat rekomendasi; keputusan akhir tetap di tangan pengurus.
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
