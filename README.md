@@ -3,8 +3,6 @@
 Prototipe KPPL — Kelompok 1. Sistem berbasis AI yang membantu pengurus RT/RW
 menentukan prioritas penerima bantuan sosial secara objektif dan transparan.
 
-Mengacu pada **Dokumen DPPL** (UC-01, UC-02, UC-08) dan **CODING INSTRUCTIONS**.
-
 ## Fitur Utama
 
 | Use Case | Fitur | Endpoint |
