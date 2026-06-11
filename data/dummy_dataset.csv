@@ -1,0 +1,601 @@
+pendapatan_bulanan,jumlah_tanggungan,kondisi_tempat_tinggal,kepemilikan_aset,indikator_tambahan,skor_prioritas,kategori_kelayakan
+5363900.0,1,Rusak Berat,Tinggi,Lansia,32.36,Kurang Layak
+2054301.0,3,Rusak Berat,Tinggi,Disabilitas,60.69,Layak
+5676566.0,8,Rusak Berat,Tinggi,Anak Putus Sekolah,48.5,Kurang Layak
+266612.0,0,Rusak Berat,Rendah,Sakit Kronis,77.13,Sangat Layak
+4239227.0,0,Layak,Rendah,Tidak Ada,23.33,Kurang Layak
+3519187.0,3,Rusak Sedang,Tinggi,Lansia,40.44,Kurang Layak
+6789994.0,0,Rusak Berat,Tinggi,Anak Putus Sekolah,28.5,Kurang Layak
+2854228.0,4,Rusak Berat,Rendah,Lansia,69.45,Layak
+857401.0,1,Rusak Sedang,Rendah,Lansia,66.86,Layak
+2885309.0,4,Rusak Berat,Tinggi,Anak Putus Sekolah,54.73,Layak
+4498207.0,1,Rusak Sedang,Rendah,Tidak Ada,34.37,Kurang Layak
+2459357.0,5,Layak,Rendah,Disabilitas,59.07,Layak
+384402.0,3,Rusak Sedang,Rendah,Sakit Kronis,76.88,Sangat Layak
+847261.0,6,Rusak Sedang,Sedang,Lansia,73.71,Layak
+1364441.0,5,Rusak Sedang,Rendah,Lansia,74.73,Layak
+5887295.0,1,Layak,Tinggi,Sakit Kronis,15.36,Kurang Layak
+4480690.0,3,Rusak Berat,Sedang,Anak Putus Sekolah,46.71,Kurang Layak
+2264486.0,8,Rusak Berat,Tinggi,Lansia,68.65,Layak
+6445081.0,0,Rusak Berat,Rendah,Lansia,43.0,Kurang Layak
+3365214.0,4,Rusak Berat,Rendah,Tidak Ada,58.87,Layak
+6022301.0,5,Rusak Berat,Tinggi,Anak Putus Sekolah,42.79,Kurang Layak
+3318800.0,7,Rusak Berat,Sedang,Sakit Kronis,68.27,Layak
+2068861.0,8,Layak,Sedang,Tidak Ada,51.02,Layak
+3593963.0,6,Rusak Sedang,Rendah,Sakit Kronis,62.98,Layak
+4274216.0,7,Rusak Berat,Rendah,Disabilitas,70.08,Layak
+1282125.0,2,Layak,Sedang,Tidak Ada,42.24,Kurang Layak
+532909.0,6,Rusak Sedang,Tinggi,Anak Putus Sekolah,68.91,Layak
+4438532.0,4,Layak,Rendah,Disabilitas,42.36,Kurang Layak
+5718601.0,8,Rusak Sedang,Tinggi,Lansia,41.5,Kurang Layak
+935767.0,4,Rusak Sedang,Rendah,Anak Putus Sekolah,73.88,Layak
+27223.0,4,Layak,Rendah,Tidak Ada,64.24,Layak
+892638.0,4,Layak,Tinggi,Tidak Ada,44.68,Kurang Layak
+1668587.0,2,Rusak Sedang,Rendah,Tidak Ada,57.03,Layak
+6531592.0,8,Rusak Berat,Tinggi,Lansia,49.5,Kurang Layak
+4098721.0,0,Rusak Berat,Sedang,Lansia,41.81,Kurang Layak
+2008671.0,0,Rusak Berat,Tinggi,Disabilitas,52.44,Layak
+718513.0,7,Rusak Berat,Tinggi,Sakit Kronis,80.47,Sangat Layak
+1077025.0,7,Layak,Rendah,Lansia,72.46,Layak
+4426448.0,6,Rusak Berat,Tinggi,Sakit Kronis,51.66,Layak
+5980649.0,4,Rusak Sedang,Tinggi,Lansia,32.93,Kurang Layak
+3675049.0,8,Rusak Sedang,Rendah,Sakit Kronis,65.28,Layak
+1884897.0,1,Rusak Sedang,Rendah,Tidak Ada,52.66,Layak
+4646630.0,3,Layak,Rendah,Disabilitas,38.05,Kurang Layak
+595533.0,0,Rusak Berat,Rendah,Disabilitas,75.83,Sangat Layak
+2771835.0,1,Layak,Rendah,Lansia,43.45,Kurang Layak
+5611792.0,7,Rusak Berat,Tinggi,Sakit Kronis,50.5,Layak
+6067921.0,7,Rusak Berat,Sedang,Anak Putus Sekolah,54.5,Layak
+1597274.0,1,Rusak Berat,Tinggi,Anak Putus Sekolah,55.18,Layak
+2972063.0,6,Rusak Sedang,Sedang,Disabilitas,60.84,Layak
+5648591.0,1,Rusak Berat,Sedang,Lansia,38.36,Kurang Layak
+6715856.0,1,Rusak Berat,Rendah,Sakit Kronis,46.86,Kurang Layak
+4498690.0,7,Rusak Berat,Sedang,Sakit Kronis,60.01,Layak
+2336606.0,7,Rusak Berat,Rendah,Anak Putus Sekolah,80.64,Sangat Layak
+6778181.0,8,Rusak Berat,Rendah,Tidak Ada,56.0,Layak
+123797.0,1,Rusak Berat,Rendah,Anak Putus Sekolah,78.99,Sangat Layak
+4073853.0,7,Rusak Berat,Sedang,Disabilitas,63.98,Layak
+1381076.0,6,Rusak Berat,Sedang,Lansia,77.97,Sangat Layak
+6577260.0,7,Rusak Sedang,Sedang,Tidak Ada,40.5,Kurang Layak
+5552178.0,7,Rusak Berat,Rendah,Lansia,63.0,Layak
+1826207.0,0,Layak,Tinggi,Tidak Ada,26.72,Kurang Layak
+511349.0,5,Rusak Berat,Rendah,Tidak Ada,81.71,Sangat Layak
+3999591.0,8,Layak,Rendah,Disabilitas,54.0,Layak
+4259974.0,1,Rusak Berat,Rendah,Tidak Ada,44.04,Kurang Layak
+570097.0,3,Rusak Sedang,Rendah,Tidak Ada,67.58,Layak
+2065404.0,0,Layak,Rendah,Anak Putus Sekolah,44.54,Kurang Layak
+5514445.0,8,Rusak Sedang,Sedang,Sakit Kronis,48.5,Kurang Layak
+5618068.0,5,Rusak Berat,Sedang,Anak Putus Sekolah,48.79,Kurang Layak
+1097886.0,4,Rusak Sedang,Sedang,Disabilitas,68.24,Layak
+78143.0,7,Layak,Tinggi,Disabilitas,67.95,Layak
+614555.0,8,Rusak Berat,Tinggi,Lansia,80.2,Sangat Layak
+1111126.0,5,Rusak Berat,Rendah,Lansia,84.51,Sangat Layak
+2390647.0,2,Rusak Sedang,Tinggi,Lansia,45.48,Kurang Layak
+5131124.0,8,Rusak Berat,Tinggi,Tidak Ada,42.5,Kurang Layak
+2511370.0,1,Rusak Berat,Sedang,Disabilitas,57.78,Layak
+897882.0,8,Rusak Berat,Sedang,Lansia,84.21,Sangat Layak
+5073680.0,3,Layak,Sedang,Sakit Kronis,27.07,Kurang Layak
+5767143.0,4,Layak,Sedang,Lansia,28.93,Kurang Layak
+426132.0,1,Layak,Sedang,Lansia,52.38,Layak
+369826.0,0,Rusak Sedang,Rendah,Lansia,67.41,Layak
+1355447.0,7,Layak,Tinggi,Anak Putus Sekolah,56.01,Layak
+4705227.0,0,Rusak Berat,Rendah,Sakit Kronis,46.06,Kurang Layak
+4576743.0,0,Rusak Sedang,Tinggi,Tidak Ada,17.46,Kurang Layak
+1242300.0,6,Rusak Berat,Rendah,Lansia,86.44,Sangat Layak
+3058918.0,0,Rusak Sedang,Rendah,Sakit Kronis,49.59,Kurang Layak
+5594642.0,1,Rusak Sedang,Tinggi,Anak Putus Sekolah,23.36,Kurang Layak
+5206486.0,2,Rusak Berat,Rendah,Sakit Kronis,49.71,Kurang Layak
+3458576.0,0,Rusak Berat,Tinggi,Lansia,40.29,Kurang Layak
+6563133.0,6,Layak,Tinggi,Sakit Kronis,29.64,Kurang Layak
+2238128.0,2,Layak,Rendah,Anak Putus Sekolah,49.05,Kurang Layak
+324845.0,7,Rusak Berat,Rendah,Anak Putus Sekolah,94.72,Sangat Layak
+2933147.0,4,Rusak Berat,Rendah,Disabilitas,70.9,Layak
+5536759.0,3,Rusak Sedang,Sedang,Lansia,36.07,Kurang Layak
+582343.0,4,Rusak Sedang,Tinggi,Tidak Ada,56.85,Layak
+3352745.0,8,Rusak Sedang,Rendah,Disabilitas,68.53,Layak
+2191231.0,2,Layak,Sedang,Disabilitas,44.88,Kurang Layak
+909346.0,6,Rusak Sedang,Tinggi,Lansia,67.28,Layak
+3660737.0,8,Rusak Berat,Sedang,Tidak Ada,57.88,Layak
+1594496.0,4,Rusak Berat,Tinggi,Anak Putus Sekolah,63.77,Layak
+14187.0,8,Layak,Tinggi,Sakit Kronis,67.4,Layak
+3055311.0,6,Rusak Berat,Tinggi,Lansia,60.25,Layak
+5227406.0,5,Layak,Rendah,Lansia,39.29,Kurang Layak
+4254051.0,4,Layak,Sedang,Lansia,34.15,Kurang Layak
+3375579.0,4,Layak,Rendah,Sakit Kronis,48.8,Kurang Layak
+3526959.0,6,Layak,Tinggi,Sakit Kronis,39.95,Kurang Layak
+5163313.0,4,Rusak Sedang,Tinggi,Disabilitas,34.93,Kurang Layak
+2549087.0,4,Rusak Berat,Sedang,Tidak Ada,57.09,Layak
+5089046.0,5,Rusak Sedang,Sedang,Anak Putus Sekolah,40.79,Kurang Layak
+5667572.0,3,Layak,Sedang,Sakit Kronis,27.07,Kurang Layak
+5526840.0,1,Rusak Sedang,Tinggi,Tidak Ada,17.36,Kurang Layak
+2811762.0,1,Rusak Berat,Tinggi,Lansia,47.67,Kurang Layak
+1884422.0,3,Rusak Berat,Rendah,Disabilitas,75.38,Sangat Layak
+2053888.0,7,Layak,Rendah,Anak Putus Sekolah,64.62,Layak
+3476583.0,3,Layak,Tinggi,Anak Putus Sekolah,29.74,Kurang Layak
+4147136.0,6,Rusak Berat,Rendah,Disabilitas,68.11,Layak
+6299546.0,1,Rusak Sedang,Rendah,Sakit Kronis,38.86,Kurang Layak
+6745362.0,8,Rusak Sedang,Rendah,Tidak Ada,48.0,Kurang Layak
+2090426.0,1,Rusak Sedang,Rendah,Anak Putus Sekolah,57.22,Layak
+5600047.0,8,Layak,Tinggi,Lansia,31.5,Kurang Layak
+6335496.0,7,Layak,Tinggi,Tidak Ada,24.5,Kurang Layak
+3579760.0,8,Rusak Sedang,Rendah,Anak Putus Sekolah,63.94,Layak
+3775458.0,4,Rusak Berat,Tinggi,Lansia,49.5,Kurang Layak
+6424110.0,8,Rusak Sedang,Tinggi,Sakit Kronis,42.5,Kurang Layak
+2303490.0,7,Rusak Berat,Tinggi,Lansia,68.38,Layak
+1967074.0,4,Rusak Sedang,Sedang,Tidak Ada,53.16,Layak
+675934.0,2,Rusak Berat,Rendah,Anak Putus Sekolah,77.98,Sangat Layak
+5821272.0,2,Layak,Rendah,Disabilitas,32.71,Kurang Layak
+3480164.0,6,Rusak Sedang,Tinggi,Anak Putus Sekolah,48.28,Kurang Layak
+3487767.0,0,Rusak Berat,Sedang,Anak Putus Sekolah,45.08,Kurang Layak
+6457514.0,0,Layak,Sedang,Anak Putus Sekolah,16.5,Kurang Layak
+49459.0,5,Rusak Sedang,Sedang,Anak Putus Sekolah,75.44,Sangat Layak
+4514921.0,8,Layak,Rendah,Anak Putus Sekolah,47.4,Kurang Layak
+1840642.0,4,Rusak Sedang,Sedang,Disabilitas,63.04,Layak
+3261970.0,5,Layak,Tinggi,Anak Putus Sekolah,36.95,Kurang Layak
+6074873.0,2,Rusak Sedang,Rendah,Tidak Ada,33.71,Kurang Layak
+4480553.0,0,Rusak Sedang,Tinggi,Tidak Ada,18.14,Kurang Layak
+5561645.0,0,Rusak Berat,Tinggi,Anak Putus Sekolah,28.5,Kurang Layak
+1138329.0,7,Rusak Berat,Rendah,Lansia,90.03,Sangat Layak
+3180153.0,5,Rusak Berat,Sedang,Lansia,62.53,Layak
+2831159.0,6,Rusak Sedang,Sedang,Lansia,59.83,Layak
+687079.0,7,Rusak Berat,Tinggi,Tidak Ada,72.69,Layak
+436925.0,5,Rusak Berat,Tinggi,Disabilitas,77.73,Sangat Layak
+6553457.0,0,Rusak Berat,Rendah,Sakit Kronis,44.0,Kurang Layak
+170959.0,2,Rusak Berat,Rendah,Anak Putus Sekolah,81.52,Sangat Layak
+5615827.0,1,Layak,Rendah,Anak Putus Sekolah,26.86,Kurang Layak
+5867537.0,4,Rusak Sedang,Rendah,Tidak Ada,39.43,Kurang Layak
+5093961.0,1,Rusak Berat,Sedang,Disabilitas,40.36,Kurang Layak
+4854359.0,0,Rusak Sedang,Tinggi,Anak Putus Sekolah,21.52,Kurang Layak
+3327378.0,3,Rusak Berat,Tinggi,Sakit Kronis,50.78,Layak
+854810.0,4,Layak,Tinggi,Disabilitas,53.94,Layak
+6679237.0,0,Rusak Sedang,Tinggi,Anak Putus Sekolah,20.5,Kurang Layak
+5549243.0,5,Rusak Berat,Tinggi,Lansia,43.79,Kurang Layak
+106133.0,6,Rusak Sedang,Rendah,Anak Putus Sekolah,85.4,Sangat Layak
+3038253.0,7,Layak,Rendah,Anak Putus Sekolah,57.73,Layak
+1477543.0,8,Layak,Sedang,Tidak Ada,55.16,Layak
+6779666.0,8,Rusak Sedang,Sedang,Anak Putus Sekolah,46.5,Kurang Layak
+6926763.0,4,Rusak Sedang,Rendah,Disabilitas,48.43,Kurang Layak
+2339819.0,7,Rusak Berat,Sedang,Tidak Ada,67.12,Layak
+5119833.0,6,Rusak Sedang,Rendah,Anak Putus Sekolah,51.14,Layak
+2726416.0,2,Rusak Sedang,Rendah,Lansia,56.63,Layak
+6692702.0,4,Rusak Sedang,Sedang,Tidak Ada,31.93,Kurang Layak
+5881955.0,4,Layak,Rendah,Tidak Ada,29.43,Kurang Layak
+1602697.0,1,Rusak Berat,Tinggi,Anak Putus Sekolah,55.14,Layak
+4098488.0,8,Rusak Berat,Tinggi,Anak Putus Sekolah,54.81,Layak
+5418226.0,7,Rusak Sedang,Rendah,Disabilitas,57.0,Layak
+2468226.0,3,Rusak Sedang,Tinggi,Sakit Kronis,48.8,Kurang Layak
+2568642.0,5,Rusak Sedang,Tinggi,Tidak Ada,45.81,Kurang Layak
+2883646.0,6,Layak,Tinggi,Lansia,43.46,Kurang Layak
+2951200.0,7,Rusak Sedang,Sedang,Lansia,61.84,Layak
+1933893.0,1,Layak,Rendah,Lansia,49.32,Kurang Layak
+1002897.0,8,Layak,Rendah,Sakit Kronis,73.98,Layak
+1815165.0,7,Rusak Sedang,Tinggi,Tidak Ada,56.8,Layak
+6377086.0,8,Layak,Sedang,Disabilitas,39.5,Kurang Layak
+6984592.0,3,Rusak Sedang,Rendah,Lansia,43.57,Kurang Layak
+1505264.0,4,Rusak Berat,Tinggi,Tidak Ada,58.39,Layak
+1061854.0,4,Rusak Berat,Rendah,Tidak Ada,74.99,Layak
+2450619.0,2,Layak,Sedang,Disabilitas,43.06,Kurang Layak
+102889.0,4,Rusak Sedang,Sedang,Anak Putus Sekolah,72.21,Layak
+2858048.0,2,Rusak Berat,Sedang,Anak Putus Sekolah,55.21,Layak
+957032.0,1,Rusak Sedang,Sedang,Disabilitas,60.66,Layak
+4840404.0,0,Rusak Berat,Rendah,Tidak Ada,37.12,Kurang Layak
+2548757.0,1,Rusak Berat,Rendah,Tidak Ada,56.02,Layak
+6412616.0,6,Layak,Tinggi,Tidak Ada,21.64,Kurang Layak
+1893200.0,8,Rusak Sedang,Sedang,Anak Putus Sekolah,68.25,Layak
+2494378.0,6,Rusak Sedang,Tinggi,Tidak Ada,49.18,Kurang Layak
+505248.0,1,Rusak Berat,Tinggi,Sakit Kronis,64.82,Layak
+2220012.0,1,Rusak Berat,Rendah,Sakit Kronis,66.32,Layak
+4630446.0,1,Rusak Berat,Rendah,Anak Putus Sekolah,47.44,Kurang Layak
+3779098.0,7,Rusak Sedang,Rendah,Sakit Kronis,64.55,Layak
+2416798.0,4,Layak,Sedang,Disabilitas,49.01,Kurang Layak
+5766202.0,3,Rusak Sedang,Tinggi,Tidak Ada,23.07,Kurang Layak
+5546405.0,3,Rusak Sedang,Rendah,Tidak Ada,36.57,Kurang Layak
+1885838.0,2,Rusak Sedang,Rendah,Disabilitas,64.51,Layak
+500280.0,2,Rusak Sedang,Tinggi,Tidak Ada,51.71,Layak
+2421041.0,7,Rusak Berat,Sedang,Lansia,73.55,Layak
+5869791.0,6,Rusak Sedang,Tinggi,Tidak Ada,31.64,Kurang Layak
+4142254.0,7,Rusak Berat,Tinggi,Disabilitas,57.5,Layak
+3624119.0,5,Layak,Sedang,Disabilitas,43.42,Kurang Layak
+766105.0,3,Layak,Tinggi,Tidak Ada,42.71,Kurang Layak
+174025.0,4,Layak,Rendah,Sakit Kronis,71.21,Layak
+3946846.0,8,Layak,Sedang,Lansia,44.87,Kurang Layak
+1522441.0,6,Layak,Sedang,Disabilitas,60.98,Layak
+3942732.0,5,Rusak Sedang,Sedang,Lansia,49.19,Kurang Layak
+5621487.0,1,Rusak Berat,Sedang,Anak Putus Sekolah,37.36,Kurang Layak
+5818956.0,7,Rusak Sedang,Tinggi,Anak Putus Sekolah,40.5,Kurang Layak
+6824686.0,8,Rusak Berat,Sedang,Disabilitas,57.5,Layak
+2638361.0,4,Rusak Sedang,Rendah,Anak Putus Sekolah,61.96,Layak
+4316746.0,0,Layak,Tinggi,Anak Putus Sekolah,15.28,Kurang Layak
+3466571.0,0,Rusak Berat,Tinggi,Lansia,40.23,Kurang Layak
+5223031.0,7,Layak,Sedang,Disabilitas,39.5,Kurang Layak
+1707570.0,4,Layak,Rendah,Lansia,59.48,Layak
+3675184.0,7,Rusak Berat,Rendah,Tidak Ada,65.28,Layak
+6705129.0,3,Layak,Rendah,Lansia,33.57,Kurang Layak
+4620772.0,0,Layak,Sedang,Disabilitas,22.15,Kurang Layak
+1884925.0,1,Rusak Sedang,Rendah,Sakit Kronis,60.66,Layak
+4180676.0,4,Layak,Tinggi,Lansia,28.66,Kurang Layak
+3485385.0,7,Rusak Sedang,Rendah,Anak Putus Sekolah,64.6,Layak
+4624346.0,2,Rusak Sedang,Rendah,Tidak Ada,36.34,Kurang Layak
+4263433.0,2,Rusak Berat,Sedang,Anak Putus Sekolah,45.37,Kurang Layak
+2851080.0,8,Rusak Sedang,Rendah,Lansia,70.04,Layak
+6090557.0,4,Layak,Tinggi,Anak Putus Sekolah,21.93,Kurang Layak
+1246508.0,7,Layak,Sedang,Lansia,63.77,Layak
+2788708.0,8,Layak,Sedang,Anak Putus Sekolah,51.98,Layak
+2699264.0,3,Layak,Rendah,Tidak Ada,42.68,Kurang Layak
+3212592.0,3,Rusak Sedang,Rendah,Lansia,56.08,Layak
+6247039.0,7,Layak,Sedang,Anak Putus Sekolah,36.5,Kurang Layak
+5567425.0,2,Rusak Sedang,Rendah,Sakit Kronis,41.71,Kurang Layak
+4213523.0,5,Rusak Berat,Sedang,Disabilitas,57.29,Layak
+4411997.0,7,Rusak Berat,Tinggi,Sakit Kronis,54.62,Layak
+3439149.0,2,Rusak Berat,Sedang,Lansia,52.14,Layak
+2840057.0,6,Layak,Rendah,Lansia,57.26,Layak
+5656920.0,8,Rusak Sedang,Sedang,Anak Putus Sekolah,46.5,Kurang Layak
+4538371.0,0,Layak,Rendah,Sakit Kronis,29.23,Kurang Layak
+5294562.0,4,Rusak Berat,Tinggi,Disabilitas,42.93,Kurang Layak
+3640416.0,1,Layak,Tinggi,Disabilitas,25.87,Kurang Layak
+3721845.0,2,Layak,Sedang,Disabilitas,34.16,Kurang Layak
+385800.0,5,Rusak Berat,Sedang,Lansia,82.08,Sangat Layak
+3144394.0,6,Rusak Berat,Rendah,Tidak Ada,66.13,Layak
+3456540.0,2,Rusak Berat,Rendah,Disabilitas,61.52,Layak
+5112787.0,6,Layak,Tinggi,Sakit Kronis,29.64,Kurang Layak
+4174735.0,2,Rusak Berat,Sedang,Lansia,46.99,Kurang Layak
+3855156.0,4,Layak,Rendah,Anak Putus Sekolah,43.44,Kurang Layak
+2412829.0,8,Rusak Berat,Rendah,Anak Putus Sekolah,80.11,Sangat Layak
+2898814.0,4,Layak,Sedang,Lansia,43.64,Kurang Layak
+3832216.0,4,Rusak Berat,Sedang,Anak Putus Sekolah,54.1,Layak
+894672.0,3,Rusak Sedang,Tinggi,Lansia,58.81,Layak
+4821871.0,4,Layak,Sedang,Disabilitas,32.17,Kurang Layak
+6962859.0,6,Rusak Sedang,Rendah,Tidak Ada,45.14,Kurang Layak
+5752903.0,0,Layak,Tinggi,Anak Putus Sekolah,10.5,Kurang Layak
+6986359.0,4,Rusak Berat,Tinggi,Lansia,40.93,Kurang Layak
+1837143.0,3,Layak,Sedang,Sakit Kronis,49.21,Kurang Layak
+5270127.0,1,Layak,Tinggi,Disabilitas,16.36,Kurang Layak
+2591516.0,7,Rusak Berat,Tinggi,Lansia,66.36,Layak
+6143479.0,2,Rusak Berat,Sedang,Lansia,41.21,Kurang Layak
+6270323.0,6,Rusak Berat,Rendah,Sakit Kronis,61.14,Layak
+6597747.0,8,Rusak Sedang,Tinggi,Tidak Ada,34.5,Kurang Layak
+2286125.0,2,Rusak Sedang,Sedang,Lansia,52.21,Layak
+6262593.0,5,Rusak Berat,Sedang,Disabilitas,51.79,Layak
+1180755.0,3,Layak,Tinggi,Anak Putus Sekolah,45.8,Kurang Layak
+6749370.0,8,Rusak Sedang,Rendah,Anak Putus Sekolah,54.0,Layak
+116758.0,4,Layak,Rendah,Anak Putus Sekolah,69.61,Layak
+3091920.0,4,Layak,Sedang,Lansia,42.28,Kurang Layak
+908872.0,3,Rusak Sedang,Rendah,Tidak Ada,65.21,Layak
+4709426.0,5,Layak,Rendah,Disabilitas,43.32,Kurang Layak
+5330154.0,7,Layak,Sedang,Anak Putus Sekolah,36.5,Kurang Layak
+978748.0,2,Rusak Berat,Rendah,Lansia,76.86,Sangat Layak
+4132434.0,1,Rusak Berat,Rendah,Tidak Ada,44.93,Kurang Layak
+1138032.0,6,Rusak Sedang,Sedang,Tidak Ada,64.68,Layak
+3515890.0,2,Rusak Sedang,Tinggi,Disabilitas,39.6,Kurang Layak
+6993524.0,7,Layak,Sedang,Lansia,37.5,Kurang Layak
+274444.0,5,Rusak Berat,Sedang,Anak Putus Sekolah,81.86,Sangat Layak
+1980656.0,5,Rusak Berat,Tinggi,Lansia,64.92,Layak
+4567310.0,5,Rusak Berat,Sedang,Lansia,52.81,Layak
+1592229.0,1,Rusak Sedang,Rendah,Sakit Kronis,62.71,Layak
+5383007.0,0,Rusak Berat,Sedang,Sakit Kronis,36.5,Kurang Layak
+1056326.0,3,Rusak Berat,Tinggi,Sakit Kronis,66.68,Layak
+4918937.0,3,Rusak Berat,Sedang,Sakit Kronis,45.64,Kurang Layak
+6615623.0,0,Rusak Sedang,Rendah,Sakit Kronis,36.0,Kurang Layak
+4531655.0,4,Rusak Berat,Rendah,Disabilitas,59.71,Layak
+1105645.0,0,Rusak Sedang,Rendah,Tidak Ada,55.26,Layak
+2715991.0,0,Rusak Berat,Sedang,Disabilitas,53.49,Layak
+1063327.0,6,Layak,Rendah,Disabilitas,71.7,Layak
+3995040.0,7,Rusak Sedang,Tinggi,Tidak Ada,41.53,Kurang Layak
+914811.0,7,Layak,Rendah,Tidak Ada,66.59,Layak
+363772.0,8,Rusak Sedang,Sedang,Disabilitas,81.95,Sangat Layak
+510240.0,7,Rusak Sedang,Sedang,Disabilitas,80.93,Sangat Layak
+4112673.0,7,Rusak Berat,Rendah,Lansia,69.21,Layak
+5102768.0,2,Rusak Berat,Rendah,Lansia,48.71,Kurang Layak
+5237154.0,8,Layak,Sedang,Anak Putus Sekolah,36.5,Kurang Layak
+5011286.0,8,Rusak Sedang,Sedang,Tidak Ada,40.5,Kurang Layak
+5078688.0,6,Rusak Berat,Tinggi,Disabilitas,48.64,Kurang Layak
+5492130.0,8,Layak,Rendah,Anak Putus Sekolah,44.0,Kurang Layak
+3787917.0,3,Rusak Sedang,Sedang,Anak Putus Sekolah,43.56,Kurang Layak
+3344791.0,6,Layak,Rendah,Lansia,53.73,Layak
+3579955.0,5,Layak,Sedang,Lansia,41.73,Kurang Layak
+1280428.0,7,Rusak Berat,Rendah,Disabilitas,91.04,Sangat Layak
+782070.0,6,Rusak Berat,Tinggi,Lansia,76.17,Sangat Layak
+6809614.0,2,Layak,Rendah,Tidak Ada,23.71,Kurang Layak
+4710928.0,8,Rusak Sedang,Tinggi,Disabilitas,45.52,Kurang Layak
+3446112.0,5,Layak,Sedang,Disabilitas,44.66,Kurang Layak
+2412810.0,4,Rusak Sedang,Rendah,Tidak Ada,57.54,Layak
+4256484.0,3,Rusak Berat,Tinggi,Anak Putus Sekolah,42.28,Kurang Layak
+1881102.0,1,Rusak Sedang,Tinggi,Lansia,46.19,Kurang Layak
+963727.0,4,Layak,Rendah,Anak Putus Sekolah,63.68,Layak
+4705721.0,8,Rusak Berat,Tinggi,Lansia,51.56,Layak
+242876.0,2,Rusak Sedang,Tinggi,Lansia,60.51,Layak
+2850655.0,5,Rusak Berat,Rendah,Sakit Kronis,73.33,Layak
+4750645.0,6,Rusak Berat,Rendah,Disabilitas,63.89,Layak
+769719.0,8,Rusak Berat,Sedang,Anak Putus Sekolah,84.11,Sangat Layak
+3805456.0,5,Rusak Berat,Sedang,Lansia,58.15,Layak
+6053185.0,5,Layak,Tinggi,Disabilitas,27.79,Kurang Layak
+441314.0,2,Rusak Berat,Tinggi,Disabilitas,69.12,Layak
+5653659.0,1,Rusak Sedang,Sedang,Anak Putus Sekolah,29.36,Kurang Layak
+4074025.0,7,Rusak Sedang,Sedang,Sakit Kronis,54.98,Layak
+6332922.0,8,Rusak Berat,Sedang,Anak Putus Sekolah,54.5,Layak
+930210.0,4,Layak,Tinggi,Tidak Ada,44.42,Kurang Layak
+4082171.0,8,Layak,Sedang,Disabilitas,45.93,Kurang Layak
+1849842.0,6,Layak,Rendah,Disabilitas,66.19,Layak
+1714825.0,4,Rusak Berat,Rendah,Lansia,77.42,Sangat Layak
+2428058.0,5,Rusak Berat,Rendah,Anak Putus Sekolah,74.29,Layak
+6266408.0,6,Rusak Berat,Rendah,Anak Putus Sekolah,59.14,Layak
+4467624.0,3,Layak,Tinggi,Lansia,23.8,Kurang Layak
+604613.0,6,Layak,Rendah,Anak Putus Sekolah,71.91,Layak
+157215.0,7,Rusak Berat,Sedang,Tidak Ada,82.4,Sangat Layak
+3601097.0,6,Layak,Tinggi,Anak Putus Sekolah,37.44,Kurang Layak
+2428629.0,1,Rusak Sedang,Rendah,Lansia,55.86,Layak
+1441776.0,7,Layak,Sedang,Disabilitas,64.41,Layak
+3663403.0,1,Rusak Berat,Sedang,Tidak Ada,40.71,Kurang Layak
+3359216.0,8,Rusak Berat,Sedang,Lansia,66.99,Layak
+6256264.0,5,Rusak Berat,Sedang,Sakit Kronis,50.79,Layak
+640716.0,8,Layak,Rendah,Tidak Ada,68.52,Layak
+4277787.0,3,Rusak Sedang,Sedang,Sakit Kronis,42.13,Kurang Layak
+1981966.0,1,Rusak Berat,Sedang,Sakit Kronis,60.48,Layak
+1455415.0,2,Layak,Rendah,Sakit Kronis,56.53,Layak
+6483119.0,7,Rusak Sedang,Tinggi,Tidak Ada,34.5,Kurang Layak
+3765690.0,5,Layak,Sedang,Sakit Kronis,41.43,Kurang Layak
+3688997.0,1,Rusak Sedang,Sedang,Lansia,39.53,Kurang Layak
+6680097.0,4,Layak,Rendah,Lansia,36.43,Kurang Layak
+4255850.0,1,Rusak Sedang,Sedang,Anak Putus Sekolah,34.57,Kurang Layak
+315472.0,0,Rusak Sedang,Sedang,Disabilitas,62.29,Layak
+5407854.0,1,Layak,Tinggi,Tidak Ada,7.36,Kurang Layak
+3225272.0,7,Layak,Tinggi,Disabilitas,45.92,Kurang Layak
+3772639.0,3,Rusak Sedang,Tinggi,Anak Putus Sekolah,37.66,Kurang Layak
+4205773.0,2,Rusak Berat,Sedang,Disabilitas,48.77,Kurang Layak
+6802882.0,5,Layak,Rendah,Tidak Ada,32.29,Kurang Layak
+5420106.0,2,Rusak Berat,Rendah,Anak Putus Sekolah,47.71,Kurang Layak
+3686137.0,8,Layak,Tinggi,Sakit Kronis,41.7,Kurang Layak
+3052597.0,5,Rusak Sedang,Sedang,Anak Putus Sekolah,54.42,Layak
+6496681.0,5,Layak,Tinggi,Disabilitas,27.79,Kurang Layak
+6620515.0,5,Rusak Berat,Sedang,Disabilitas,51.79,Layak
+4680534.0,6,Rusak Sedang,Sedang,Tidak Ada,39.88,Kurang Layak
+1261422.0,5,Rusak Berat,Tinggi,Sakit Kronis,70.96,Layak
+2934509.0,4,Layak,Tinggi,Anak Putus Sekolah,36.39,Kurang Layak
+1081724.0,1,Rusak Sedang,Tinggi,Anak Putus Sekolah,50.79,Layak
+5398012.0,5,Rusak Berat,Tinggi,Tidak Ada,36.79,Kurang Layak
+783940.0,6,Layak,Sedang,Disabilitas,66.15,Layak
+3041689.0,4,Rusak Berat,Rendah,Lansia,68.14,Layak
+6426984.0,7,Rusak Berat,Rendah,Sakit Kronis,64.0,Layak
+1299774.0,1,Rusak Sedang,Rendah,Tidak Ada,56.76,Layak
+6466565.0,8,Layak,Tinggi,Disabilitas,33.5,Kurang Layak
+5552664.0,5,Layak,Rendah,Tidak Ada,32.29,Kurang Layak
+3160155.0,2,Rusak Berat,Rendah,Tidak Ada,54.59,Layak
+6786750.0,2,Layak,Sedang,Disabilitas,25.21,Kurang Layak
+3446531.0,5,Layak,Tinggi,Sakit Kronis,37.66,Kurang Layak
+3726208.0,4,Layak,Sedang,Sakit Kronis,38.85,Kurang Layak
+4479610.0,3,Rusak Sedang,Sedang,Sakit Kronis,40.72,Kurang Layak
+3085673.0,7,Rusak Sedang,Sedang,Anak Putus Sekolah,59.9,Layak
+4218687.0,8,Rusak Sedang,Rendah,Sakit Kronis,61.47,Layak
+6721449.0,2,Rusak Sedang,Rendah,Anak Putus Sekolah,39.71,Kurang Layak
+3113952.0,8,Rusak Berat,Tinggi,Tidak Ada,55.7,Layak
+1045872.0,4,Rusak Berat,Rendah,Lansia,82.11,Sangat Layak
+3769162.0,8,Rusak Berat,Sedang,Disabilitas,66.12,Layak
+1862589.0,7,Rusak Sedang,Rendah,Anak Putus Sekolah,75.96,Sangat Layak
+446751.0,6,Layak,Sedang,Sakit Kronis,67.51,Layak
+3239396.0,1,Rusak Sedang,Rendah,Disabilitas,52.18,Layak
+2673322.0,1,Layak,Tinggi,Lansia,30.64,Kurang Layak
+6638581.0,2,Rusak Berat,Rendah,Lansia,48.71,Kurang Layak
+6960544.0,7,Layak,Rendah,Anak Putus Sekolah,44.0,Kurang Layak
+3763141.0,0,Rusak Berat,Rendah,Lansia,51.66,Layak
+1809043.0,2,Layak,Tinggi,Tidak Ada,32.55,Kurang Layak
+4427268.0,6,Rusak Berat,Sedang,Sakit Kronis,57.65,Layak
+2526239.0,1,Rusak Berat,Rendah,Anak Putus Sekolah,62.18,Layak
+5359915.0,7,Rusak Berat,Rendah,Anak Putus Sekolah,62.0,Layak
+5005809.0,8,Rusak Berat,Tinggi,Tidak Ada,42.5,Kurang Layak
+4823847.0,3,Layak,Rendah,Lansia,34.8,Kurang Layak
+3600716.0,0,Layak,Sedang,Sakit Kronis,28.3,Kurang Layak
+4787074.0,6,Rusak Berat,Tinggi,Disabilitas,50.13,Layak
+4391306.0,5,Rusak Berat,Tinggi,Tidak Ada,41.05,Kurang Layak
+4255773.0,8,Layak,Rendah,Anak Putus Sekolah,49.21,Kurang Layak
+3943778.0,0,Layak,Sedang,Lansia,24.89,Kurang Layak
+2127772.0,0,Rusak Sedang,Rendah,Lansia,55.1,Layak
+2022710.0,1,Layak,Tinggi,Lansia,35.2,Kurang Layak
+1119120.0,0,Rusak Sedang,Tinggi,Lansia,48.67,Kurang Layak
+6824206.0,2,Layak,Sedang,Anak Putus Sekolah,22.21,Kurang Layak
+5299384.0,2,Rusak Berat,Rendah,Anak Putus Sekolah,47.71,Kurang Layak
+310242.0,4,Rusak Berat,Rendah,Sakit Kronis,88.26,Sangat Layak
+351532.0,5,Rusak Sedang,Tinggi,Anak Putus Sekolah,67.33,Layak
+6840121.0,8,Rusak Sedang,Sedang,Disabilitas,49.5,Kurang Layak
+6319062.0,3,Rusak Sedang,Sedang,Disabilitas,38.07,Kurang Layak
+5500673.0,5,Rusak Sedang,Rendah,Lansia,49.29,Kurang Layak
+3665413.0,6,Layak,Sedang,Anak Putus Sekolah,42.98,Kurang Layak
+2844045.0,2,Rusak Sedang,Tinggi,Anak Putus Sekolah,41.31,Kurang Layak
+3081529.0,8,Rusak Sedang,Rendah,Anak Putus Sekolah,67.43,Layak
+662087.0,6,Layak,Rendah,Tidak Ada,65.51,Layak
+2464291.0,5,Rusak Berat,Rendah,Lansia,75.03,Sangat Layak
+5544192.0,4,Rusak Sedang,Sedang,Tidak Ada,31.93,Kurang Layak
+6020192.0,6,Rusak Berat,Tinggi,Anak Putus Sekolah,45.64,Kurang Layak
+2948989.0,7,Rusak Berat,Tinggi,Lansia,63.86,Layak
+5157748.0,6,Rusak Sedang,Tinggi,Disabilitas,40.64,Kurang Layak
+629490.0,6,Rusak Sedang,Tinggi,Sakit Kronis,70.24,Layak
+261226.0,2,Layak,Tinggi,Anak Putus Sekolah,49.39,Kurang Layak
+291914.0,2,Rusak Berat,Rendah,Lansia,81.67,Sangat Layak
+3037939.0,6,Layak,Rendah,Tidak Ada,48.88,Kurang Layak
+1287132.0,7,Rusak Sedang,Sedang,Anak Putus Sekolah,72.49,Layak
+6401216.0,1,Layak,Rendah,Tidak Ada,20.86,Kurang Layak
+3078199.0,6,Rusak Sedang,Tinggi,Lansia,52.1,Layak
+2093894.0,1,Rusak Berat,Tinggi,Sakit Kronis,53.7,Layak
+4186284.0,8,Rusak Sedang,Tinggi,Disabilitas,49.19,Kurang Layak
+2195941.0,4,Layak,Sedang,Sakit Kronis,49.56,Kurang Layak
+5132797.0,4,Layak,Sedang,Sakit Kronis,29.93,Kurang Layak
+1028757.0,2,Rusak Berat,Sedang,Sakit Kronis,70.01,Layak
+5984180.0,7,Rusak Berat,Tinggi,Lansia,49.5,Kurang Layak
+5602246.0,5,Layak,Rendah,Tidak Ada,32.29,Kurang Layak
+4548063.0,4,Rusak Sedang,Rendah,Sakit Kronis,50.59,Layak
+6658007.0,5,Layak,Rendah,Disabilitas,41.29,Kurang Layak
+1685945.0,2,Rusak Berat,Sedang,Disabilitas,66.41,Layak
+3027419.0,8,Layak,Sedang,Anak Putus Sekolah,50.31,Layak
+6741603.0,8,Rusak Berat,Tinggi,Disabilitas,51.5,Layak
+551535.0,4,Rusak Sedang,Tinggi,Anak Putus Sekolah,63.07,Layak
+4409854.0,6,Rusak Sedang,Tinggi,Disabilitas,44.77,Kurang Layak
+1051317.0,5,Layak,Rendah,Anak Putus Sekolah,65.93,Layak
+3907692.0,8,Rusak Sedang,Rendah,Tidak Ada,55.65,Layak
+5366980.0,2,Rusak Berat,Sedang,Tidak Ada,34.21,Kurang Layak
+464836.0,1,Layak,Rendah,Lansia,59.6,Layak
+1381243.0,2,Rusak Sedang,Tinggi,Sakit Kronis,53.55,Layak
+2902651.0,8,Rusak Sedang,Rendah,Lansia,69.68,Layak
+1646699.0,8,Rusak Sedang,Rendah,Lansia,78.47,Sangat Layak
+5154197.0,8,Rusak Berat,Tinggi,Sakit Kronis,50.5,Layak
+4964449.0,2,Rusak Berat,Tinggi,Tidak Ada,28.46,Kurang Layak
+6045105.0,5,Layak,Rendah,Disabilitas,41.29,Kurang Layak
+681346.0,0,Layak,Tinggi,Lansia,41.73,Kurang Layak
+5462074.0,3,Layak,Sedang,Tidak Ada,19.07,Kurang Layak
+5360246.0,0,Rusak Sedang,Tinggi,Tidak Ada,14.5,Kurang Layak
+2429941.0,4,Rusak Sedang,Rendah,Anak Putus Sekolah,63.42,Layak
+2495056.0,7,Rusak Berat,Tinggi,Disabilitas,69.03,Layak
+1326074.0,7,Rusak Sedang,Sedang,Anak Putus Sekolah,72.22,Layak
+1711469.0,5,Layak,Rendah,Lansia,62.31,Layak
+6026064.0,5,Layak,Sedang,Anak Putus Sekolah,30.79,Kurang Layak
+1096945.0,5,Layak,Tinggi,Disabilitas,55.11,Layak
+2676938.0,3,Rusak Sedang,Rendah,Lansia,59.83,Layak
+3771484.0,3,Rusak Berat,Rendah,Disabilitas,62.17,Layak
+2434474.0,6,Layak,Sedang,Sakit Kronis,53.6,Layak
+1339657.0,5,Layak,Tinggi,Lansia,51.41,Layak
+1592443.0,2,Rusak Sedang,Tinggi,Anak Putus Sekolah,50.07,Layak
+4183899.0,4,Rusak Sedang,Rendah,Disabilitas,54.14,Layak
+3298754.0,8,Rusak Sedang,Rendah,Sakit Kronis,67.91,Layak
+4893445.0,5,Rusak Berat,Rendah,Lansia,58.03,Layak
+4151473.0,7,Rusak Sedang,Tinggi,Disabilitas,49.44,Kurang Layak
+901750.0,6,Rusak Berat,Sedang,Lansia,81.33,Sangat Layak
+6407694.0,6,Rusak Sedang,Rendah,Anak Putus Sekolah,51.14,Layak
+429141.0,8,Rusak Berat,Sedang,Tidak Ada,80.5,Sangat Layak
+2420966.0,1,Rusak Sedang,Tinggi,Anak Putus Sekolah,41.41,Kurang Layak
+6412286.0,8,Rusak Sedang,Tinggi,Tidak Ada,34.5,Kurang Layak
+996659.0,2,Rusak Berat,Sedang,Lansia,69.24,Layak
+6668081.0,5,Layak,Sedang,Sakit Kronis,32.79,Kurang Layak
+1669818.0,8,Rusak Sedang,Tinggi,Disabilitas,66.81,Layak
+380032.0,0,Rusak Berat,Tinggi,Lansia,61.84,Layak
+6744154.0,7,Layak,Sedang,Sakit Kronis,38.5,Kurang Layak
+5085681.0,8,Rusak Berat,Sedang,Tidak Ada,48.5,Kurang Layak
+2672023.0,2,Rusak Sedang,Tinggi,Lansia,43.51,Kurang Layak
+4980523.0,5,Layak,Tinggi,Tidak Ada,18.92,Kurang Layak
+4109131.0,4,Rusak Sedang,Rendah,Lansia,52.66,Layak
+2778639.0,1,Rusak Sedang,Tinggi,Lansia,39.91,Kurang Layak
+6683663.0,0,Layak,Sedang,Lansia,17.5,Kurang Layak
+5499495.0,3,Layak,Rendah,Tidak Ada,26.57,Kurang Layak
+4030296.0,2,Layak,Tinggi,Tidak Ada,17.0,Kurang Layak
+6497867.0,6,Rusak Berat,Tinggi,Sakit Kronis,47.64,Kurang Layak
+264832.0,1,Rusak Berat,Rendah,Anak Putus Sekolah,78.0,Sangat Layak
+2631443.0,6,Rusak Berat,Sedang,Sakit Kronis,70.22,Layak
+3442495.0,8,Layak,Sedang,Disabilitas,50.4,Layak
+5920471.0,2,Layak,Rendah,Tidak Ada,23.71,Kurang Layak
+2726713.0,7,Layak,Sedang,Lansia,53.41,Layak
+1452759.0,7,Layak,Sedang,Tidak Ada,55.33,Layak
+2971974.0,4,Layak,Sedang,Sakit Kronis,44.12,Kurang Layak
+2067952.0,4,Layak,Sedang,Sakit Kronis,50.45,Layak
+2496571.0,4,Layak,Rendah,Anak Putus Sekolah,52.95,Layak
+2659530.0,7,Rusak Sedang,Tinggi,Lansia,57.88,Layak
+2414152.0,1,Layak,Tinggi,Tidak Ada,25.46,Kurang Layak
+3185105.0,6,Rusak Sedang,Rendah,Lansia,64.85,Layak
+352879.0,4,Layak,Rendah,Lansia,68.96,Layak
+3710919.0,4,Layak,Sedang,Sakit Kronis,38.95,Kurang Layak
+1695069.0,8,Rusak Sedang,Tinggi,Lansia,64.64,Layak
+1151529.0,1,Layak,Tinggi,Tidak Ada,34.3,Kurang Layak
+2007243.0,3,Rusak Berat,Tinggi,Tidak Ada,52.02,Layak
+1893070.0,3,Rusak Berat,Rendah,Anak Putus Sekolah,72.32,Layak
+2770703.0,7,Rusak Berat,Tinggi,Sakit Kronis,66.11,Layak
+43465.0,8,Rusak Berat,Sedang,Anak Putus Sekolah,89.2,Sangat Layak
+4005128.0,3,Rusak Sedang,Sedang,Lansia,43.04,Kurang Layak
+5418184.0,0,Rusak Berat,Tinggi,Tidak Ada,22.5,Kurang Layak
+1948004.0,8,Layak,Tinggi,Disabilitas,54.86,Layak
+1468549.0,6,Rusak Berat,Rendah,Anak Putus Sekolah,83.86,Sangat Layak
+6609892.0,7,Rusak Berat,Tinggi,Lansia,49.5,Kurang Layak
+314289.0,0,Rusak Sedang,Tinggi,Tidak Ada,47.3,Kurang Layak
+900103.0,5,Rusak Sedang,Sedang,Tidak Ada,63.49,Layak
+4398302.0,7,Rusak Berat,Tinggi,Anak Putus Sekolah,52.71,Layak
+2288723.0,3,Rusak Berat,Sedang,Sakit Kronis,64.05,Layak
+6133072.0,7,Layak,Sedang,Sakit Kronis,38.5,Kurang Layak
+118146.0,5,Rusak Sedang,Tinggi,Sakit Kronis,70.96,Layak
+1472158.0,6,Rusak Sedang,Tinggi,Lansia,63.34,Layak
+727609.0,6,Layak,Rendah,Sakit Kronis,73.05,Layak
+1179537.0,7,Rusak Sedang,Rendah,Disabilitas,83.74,Sangat Layak
+2187625.0,6,Rusak Berat,Sedang,Lansia,72.33,Layak
+2765097.0,4,Layak,Tinggi,Tidak Ada,31.57,Kurang Layak
+95929.0,4,Layak,Sedang,Sakit Kronis,64.26,Layak
+521136.0,1,Rusak Sedang,Sedang,Sakit Kronis,62.71,Layak
+3400881.0,8,Layak,Sedang,Disabilitas,50.69,Layak
+5357898.0,4,Rusak Sedang,Tinggi,Sakit Kronis,33.93,Kurang Layak
+1838183.0,2,Rusak Sedang,Rendah,Anak Putus Sekolah,61.85,Layak
+6272454.0,5,Rusak Sedang,Tinggi,Tidak Ada,28.79,Kurang Layak
+3949592.0,8,Layak,Rendah,Sakit Kronis,53.35,Layak
+5707121.0,1,Layak,Sedang,Tidak Ada,13.36,Kurang Layak
+5903618.0,5,Rusak Berat,Tinggi,Disabilitas,45.79,Kurang Layak
+518064.0,8,Layak,Rendah,Tidak Ada,69.37,Layak
+4501831.0,2,Rusak Berat,Sedang,Tidak Ada,37.7,Kurang Layak
+3706427.0,1,Layak,Rendah,Tidak Ada,29.91,Kurang Layak
+4100586.0,1,Layak,Sedang,Disabilitas,28.65,Kurang Layak
+3803665.0,2,Layak,Sedang,Anak Putus Sekolah,30.59,Kurang Layak
+4730429.0,0,Layak,Sedang,Lansia,19.39,Kurang Layak
+6067313.0,0,Rusak Sedang,Sedang,Disabilitas,29.5,Kurang Layak
+6256261.0,3,Layak,Rendah,Disabilitas,35.57,Kurang Layak
+3554231.0,5,Layak,Rendah,Tidak Ada,42.41,Kurang Layak
+505460.0,1,Rusak Sedang,Rendah,Lansia,69.32,Layak
+3429824.0,2,Rusak Berat,Tinggi,Anak Putus Sekolah,45.2,Kurang Layak
+3141205.0,6,Rusak Sedang,Sedang,Anak Putus Sekolah,56.66,Layak
+673185.0,8,Rusak Berat,Tinggi,Lansia,79.79,Sangat Layak
+995167.0,2,Layak,Sedang,Tidak Ada,44.25,Kurang Layak
+1068264.0,3,Rusak Berat,Rendah,Lansia,79.09,Sangat Layak
+3883958.0,8,Rusak Sedang,Tinggi,Anak Putus Sekolah,48.31,Kurang Layak
+6906847.0,3,Rusak Berat,Sedang,Lansia,44.07,Kurang Layak
+1301252.0,4,Rusak Berat,Tinggi,Disabilitas,68.82,Layak
+270258.0,6,Layak,Rendah,Sakit Kronis,76.25,Sangat Layak
+1728737.0,1,Rusak Berat,Tinggi,Disabilitas,57.26,Layak
+3745019.0,0,Rusak Berat,Tinggi,Disabilitas,40.28,Kurang Layak
+3374446.0,7,Rusak Berat,Tinggi,Sakit Kronis,61.88,Layak
+6328245.0,0,Rusak Berat,Tinggi,Lansia,29.5,Kurang Layak
+1964289.0,5,Layak,Tinggi,Lansia,47.03,Kurang Layak
+1987295.0,4,Rusak Berat,Tinggi,Tidak Ada,55.02,Layak
+1854240.0,6,Rusak Sedang,Sedang,Disabilitas,68.66,Layak
+4670090.0,2,Layak,Tinggi,Anak Putus Sekolah,18.52,Kurang Layak
+4662813.0,7,Rusak Berat,Sedang,Anak Putus Sekolah,56.86,Layak
+6591806.0,8,Rusak Sedang,Tinggi,Anak Putus Sekolah,40.5,Kurang Layak
+3424726.0,2,Rusak Sedang,Sedang,Sakit Kronis,45.24,Kurang Layak
+6328500.0,8,Rusak Sedang,Rendah,Sakit Kronis,56.0,Layak
+2522759.0,2,Rusak Sedang,Rendah,Tidak Ada,51.05,Layak
+3461789.0,6,Layak,Tinggi,Sakit Kronis,40.41,Kurang Layak
+3258295.0,3,Rusak Sedang,Rendah,Lansia,55.76,Layak
+5424961.0,1,Rusak Sedang,Sedang,Disabilitas,32.36,Kurang Layak
+4493236.0,3,Rusak Berat,Sedang,Anak Putus Sekolah,46.62,Kurang Layak
+5651169.0,0,Rusak Berat,Rendah,Tidak Ada,36.0,Kurang Layak
+6075912.0,8,Rusak Berat,Sedang,Sakit Kronis,56.5,Layak
+2793107.0,4,Rusak Berat,Rendah,Sakit Kronis,70.88,Layak
+6219944.0,1,Layak,Sedang,Sakit Kronis,21.36,Kurang Layak
+5835336.0,3,Rusak Sedang,Rendah,Tidak Ada,36.57,Kurang Layak
+2697902.0,4,Rusak Sedang,Sedang,Tidak Ada,48.04,Kurang Layak
+5441869.0,5,Rusak Sedang,Sedang,Lansia,41.79,Kurang Layak
+4301816.0,7,Rusak Sedang,Rendah,Anak Putus Sekolah,58.89,Layak
+6389006.0,5,Rusak Berat,Sedang,Lansia,49.79,Kurang Layak
+3472297.0,0,Layak,Rendah,Sakit Kronis,36.69,Kurang Layak
+136062.0,4,Layak,Tinggi,Tidak Ada,49.98,Kurang Layak
+6039897.0,6,Rusak Sedang,Rendah,Sakit Kronis,53.14,Layak
+2767110.0,3,Rusak Sedang,Tinggi,Sakit Kronis,46.7,Kurang Layak
+4188444.0,8,Layak,Tinggi,Lansia,37.18,Kurang Layak
+2158613.0,7,Layak,Tinggi,Anak Putus Sekolah,50.39,Layak
+3865713.0,2,Layak,Sedang,Sakit Kronis,32.16,Kurang Layak
+1174057.0,8,Rusak Sedang,Rendah,Tidak Ada,74.78,Layak
+5383887.0,0,Layak,Rendah,Disabilitas,27.0,Kurang Layak
+6861847.0,0,Rusak Berat,Sedang,Sakit Kronis,36.5,Kurang Layak
+5290708.0,3,Rusak Berat,Tinggi,Sakit Kronis,39.07,Kurang Layak
+76684.0,3,Layak,Sedang,Lansia,60.54,Layak
+507092.0,7,Layak,Sedang,Disabilitas,70.95,Layak
+55468.0,8,Layak,Sedang,Disabilitas,74.11,Layak
+140309.0,8,Layak,Sedang,Tidak Ada,64.52,Layak
+2404917.0,0,Layak,Tinggi,Anak Putus Sekolah,28.66,Kurang Layak
+6762624.0,2,Rusak Berat,Rendah,Tidak Ada,41.71,Kurang Layak
+1249042.0,3,Rusak Berat,Tinggi,Tidak Ada,57.33,Layak
+2117437.0,5,Rusak Sedang,Sedang,Disabilitas,63.96,Layak
+3129383.0,6,Rusak Sedang,Tinggi,Sakit Kronis,52.74,Layak
+5848842.0,3,Rusak Sedang,Tinggi,Disabilitas,32.07,Kurang Layak
+5483932.0,0,Rusak Berat,Sedang,Anak Putus Sekolah,34.5,Kurang Layak
+3163927.0,8,Rusak Sedang,Rendah,Disabilitas,69.85,Layak
+5895892.0,2,Rusak Berat,Sedang,Anak Putus Sekolah,40.21,Kurang Layak
+5409874.0,5,Layak,Rendah,Tidak Ada,32.29,Kurang Layak
+356950.0,3,Rusak Berat,Tinggi,Tidak Ada,63.57,Layak
+3988785.0,4,Rusak Berat,Rendah,Lansia,61.51,Layak
+4555271.0,0,Rusak Berat,Sedang,Disabilitas,40.61,Kurang Layak
+1737768.0,2,Layak,Sedang,Disabilitas,48.05,Kurang Layak
+2510516.0,2,Layak,Rendah,Tidak Ada,41.14,Kurang Layak
+3264482.0,8,Rusak Sedang,Sedang,Sakit Kronis,60.65,Layak
+6631178.0,1,Layak,Tinggi,Lansia,14.36,Kurang Layak
+450438.0,1,Rusak Sedang,Rendah,Disabilitas,71.7,Layak
+2857099.0,6,Rusak Sedang,Rendah,Lansia,67.14,Layak
