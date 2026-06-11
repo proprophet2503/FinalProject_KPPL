@@ -1,0 +1,11 @@
+/* Penyesuaian kecil di atas Tailwind CDN. */
+html { scroll-behavior: smooth; }
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+/* Hilangkan spinner default input number agar tampilan lebih bersih. */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] { -moz-appearance: textfield; }
