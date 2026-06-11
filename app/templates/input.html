@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Input Data Rumah Tangga{% endblock %}
+
+{% block content %}
+<section aria-labelledby="judul" class="max-w-2xl mx-auto">
+  <h1 id="judul" class="text-2xl font-bold text-slate-900 mb-1">Input Data Rumah Tangga</h1>
+  <p class="text-slate-600 mb-6">Lengkapi seluruh isian. Sistem otomatis menghitung skor prioritas setelah disimpan.</p>
+
+  <div id="alert" role="alert" class="hidden mb-4 rounded-lg px-4 py-3 text-sm"></div>
+
+  <form id="form-warga" class="bg-white rounded-xl border border-slate-200 p-6 space-y-5" novalidate>
+    <div>
+      <label for="nama" class="block text-sm font-medium text-slate-700 mb-1">Nama Kepala Keluarga <span class="text-red-500">*</span></label>
+      <input id="nama" name="nama_kepala_keluarga" type="text" required
+             class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand-600 focus:border-brand-600 outline-none" />
+      <p class="err text-xs text-red-600 mt-1 hidden" data-err="nama_kepala_keluarga"></p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div>
+        <label for="pendapatan" class="block text-sm font-medium text-slate-700 mb-1">Pendapatan Bulanan (Rp) <span class="text-red-500">*</span></label>
+        <input id="pendapatan" name="pendapatan_bulanan" type="number" min="0" step="50000" required
+               class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand-600 focus:border-brand-600 outline-none" />
+        <p class="err text-xs text-red-600 mt-1 hidden" data-err="pendapatan_bulanan"></p>
+      </div>
+      <div>
+        <label for="tanggungan" class="block text-sm font-medium text-slate-700 mb-1">Jumlah Tanggungan <span class="text-red-500">*</span></label>
+        <input id="tanggungan" name="jumlah_tanggungan" type="number" min="0" step="1" required
+               class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-brand-600 focus:border-brand-600 outline-none" />
+        <p class="err text-xs text-red-600 mt-1 hidden" data-err="jumlah_tanggungan"></p>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div>
+        <label for="kondisi" class="block text-sm font-medium text-slate-700 mb-1">Kondisi Tempat Tinggal <span class="text-red-500">*</span></label>
+        <select id="kondisi" name="kondisi_tempat_tinggal" required
+                class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-brand-600 outline-none">
+          <option value="">— Pilih —</option>
+          <option>Rusak Berat</option>
+          <option>Rusak Sedang</option>
+          <option>Layak</option>
+        </select>
+        <p class="err text-xs text-red-600 mt-1 hidden" data-err="kondisi_tempat_tinggal"></p>
+      </div>
+      <div>
+        <label for="aset" class="block text-sm font-medium text-slate-700 mb-1">Kepemilikan Aset <span class="text-red-500">*</span></label>
+        <select id="aset" name="kepemilikan_aset" required
+                class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-brand-600 outline-none">
+          <option value="">— Pilih —</option>
+          <option>Rendah</option>
+          <option>Sedang</option>
+          <option>Tinggi</option>
+        </select>
+        <p class="err text-xs text-red-600 mt-1 hidden" data-err="kepemilikan_aset"></p>
+      </div>
+    </div>
+
+    <div>
+      <label for="indikator" class="block text-sm font-medium text-slate-700 mb-1">Indikator Sosial Ekonomi <span class="text-red-500">*</span></label>
+      <select id="indikator" name="indikator_tambahan" required
+              class="w-full rounded-lg border border-slate-300 px-3 py-2 bg-white focus:ring-2 focus:ring-brand-600 outline-none">
+        <option value="">— Pilih —</option>
+        <option>Disabilitas</option>
+        <option>Sakit Kronis</option>
+        <option>Lansia</option>
+        <option>Anak Putus Sekolah</option>
+        <option>Tidak Ada</option>
+      </select>
+      <p class="err text-xs text-red-600 mt-1 hidden" data-err="indikator_tambahan"></p>
+    </div>
+
+    <div class="flex items-center gap-3 pt-2">
+      <button type="submit" id="btn-simpan"
+              class="px-5 py-2.5 bg-brand-700 text-white rounded-lg font-medium hover:bg-brand-600 transition disabled:opacity-60">
+        Simpan & Hitung Skor
+      </button>
+      <span id="spinner" class="hidden text-sm text-slate-500">Memproses…</span>
+    </div>
+  </form>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>BansosApp.initForm();</script>
+{% endblock %}
