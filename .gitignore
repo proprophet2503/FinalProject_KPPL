@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data artefak runtime (DB & model di-generate)
+data/bansos.db
+data/model_rf.pkl
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
