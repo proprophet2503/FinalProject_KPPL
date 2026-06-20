@@ -81,3 +81,52 @@ def test_indikator_tidak_sah_ditolak():
     data["indikator_tambahan"] = "Random"
     with pytest.raises(ValidationError):
         validate_warga_payload(data)
+
+
+# --- Aturan tambahan dari UAT -------------------------------------------------
+
+
+def test_nama_mengandung_angka_ditolak():  # UAT TC.004
+    data = _valid_payload()
+    data["nama_kepala_keluarga"] = "Budi 12"
+    with pytest.raises(ValidationError) as exc:
+        validate_warga_payload(data)
+    assert exc.value.field == "nama_kepala_keluarga"
+    assert exc.value.pesan == "Nama tidak boleh ada angka."
+
+
+def test_pendapatan_tidak_wajar_ditolak():  # UAT TC.008
+    data = _valid_payload()
+    data["pendapatan_bulanan"] = 999999999999
+    with pytest.raises(ValidationError) as exc:
+        validate_warga_payload(data)
+    assert exc.value.pesan == "Pendapatan melebihi batas maksimal."
+
+
+def test_pendapatan_nol_diterima():  # UAT TC.008 (batas bawah valid)
+    data = _valid_payload()
+    data["pendapatan_bulanan"] = 0
+    assert validate_warga_payload(data)["pendapatan_bulanan"] == 0.0
+
+
+def test_tanggungan_desimal_ditolak():  # UAT TC.012
+    for nilai in (2.5, "2.5"):
+        data = _valid_payload()
+        data["jumlah_tanggungan"] = nilai
+        with pytest.raises(ValidationError) as exc:
+            validate_warga_payload(data)
+        assert exc.value.field == "jumlah_tanggungan"
+
+
+def test_tanggungan_tidak_wajar_ditolak():  # UAT TC.007
+    data = _valid_payload()
+    data["jumlah_tanggungan"] = 50
+    with pytest.raises(ValidationError) as exc:
+        validate_warga_payload(data)
+    assert exc.value.field == "jumlah_tanggungan"
+
+
+def test_tanggungan_nol_diterima():  # UAT TC.010 (batas bawah valid)
+    data = _valid_payload()
+    data["jumlah_tanggungan"] = 0
+    assert validate_warga_payload(data)["jumlah_tanggungan"] == 0

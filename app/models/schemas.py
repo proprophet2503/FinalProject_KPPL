@@ -77,22 +77,38 @@ def validate_warga_payload(data: dict) -> dict:
         raise ValidationError(
             "Pendapatan bulanan tidak boleh negatif.", field="pendapatan_bulanan"
         )
+    if pendapatan > MAX_PENDAPATAN:  # UAT TC.008
+        raise ValidationError(
+            "Pendapatan melebihi batas maksimal.", field="pendapatan_bulanan"
+        )
 
     tanggungan_raw = data.get("jumlah_tanggungan", None)
     if tanggungan_raw is None or tanggungan_raw == "":
         raise ValidationError(
             "Jumlah tanggungan wajib diisi.", field="jumlah_tanggungan"
         )
+    # Tolak desimal ("2.5" / 2.5) — harus bilangan bulat (UAT TC.012).
     try:
-        tanggungan = int(tanggungan_raw)
+        tanggungan_num = float(tanggungan_raw)
     except (TypeError, ValueError):
         raise ValidationError(
             "Jumlah tanggungan harus berupa bilangan bulat.",
             field="jumlah_tanggungan",
         )
+    if tanggungan_num != int(tanggungan_num):
+        raise ValidationError(
+            "Jumlah tanggungan harus berupa bilangan bulat.",
+            field="jumlah_tanggungan",
+        )
+    tanggungan = int(tanggungan_num)
     if tanggungan < 0:
         raise ValidationError(
             "Jumlah tanggungan tidak boleh negatif.", field="jumlah_tanggungan"
+        )
+    if tanggungan > MAX_TANGGUNGAN:  # UAT TC.007
+        raise ValidationError(
+            "Jumlah tanggungan tidak wajar (melebihi batas maksimal).",
+            field="jumlah_tanggungan",
         )
 
     kondisi = str(data.get("kondisi_tempat_tinggal", "")).strip()
