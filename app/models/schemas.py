@@ -13,13 +13,17 @@ from pydantic import BaseModel, Field
 
 from app.ai_model import KEPEMILIKAN_ASET, INDIKATOR_TAMBAHAN, KONDISI_RUMAH
 
+# Batas wajar input (mencegah data tidak masuk akal — UAT TC.007/TC.008).
+MAX_PENDAPATAN = 1_000_000_000.0  # 1 miliar Rp/bulan: di atas ini = tidak wajar
+MAX_TANGGUNGAN = 20  # >20 tanggungan dianggap tidak wajar untuk satu rumah tangga
+
 
 class WargaInput(BaseModel):
     """Payload input data rumah tangga dari formulir UC-01."""
 
     nama_kepala_keluarga: str = Field(..., min_length=1, max_length=120)
-    pendapatan_bulanan: float = Field(..., ge=0)
-    jumlah_tanggungan: int = Field(..., ge=0, le=30)
+    pendapatan_bulanan: float = Field(..., ge=0, le=MAX_PENDAPATAN)
+    jumlah_tanggungan: int = Field(..., ge=0, le=MAX_TANGGUNGAN)
     kondisi_tempat_tinggal: str
     kepemilikan_aset: str
     indikator_tambahan: str
@@ -52,6 +56,10 @@ def validate_warga_payload(data: dict) -> dict:
     if not nama:
         raise ValidationError(
             "Nama kepala keluarga wajib diisi.", field="nama_kepala_keluarga"
+        )
+    if any(ch.isdigit() for ch in nama):  # UAT TC.004
+        raise ValidationError(
+            "Nama tidak boleh ada angka.", field="nama_kepala_keluarga"
         )
 
     pendapatan_raw = data.get("pendapatan_bulanan", None)
