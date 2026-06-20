@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SiPrioritas — AI Penentu Prioritas Penerima Bantuan (Demo)</title>
+<style>
+  :root {
+    --teal-50:#f0fdfa; --teal-500:#0f766e; --teal-600:#0f766e; --teal-700:#115e59;
+    --green:#15803d; --green-bg:#dcfce7; --blue:#1d4ed8; --blue-bg:#dbeafe;
+    --amber:#b45309; --amber-bg:#fef3c7; --red:#b91c1c; --red-bg:#fee2e2;
+    --gray-50:#f8fafc; --gray-200:#e2e8f0; --gray-500:#64748b; --gray-700:#334155;
+    --bg:#f1f5f9; --card:#fff; --text:#1e293b; --border:#e2e8f0; --radius:12px;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+         background:var(--bg); color:var(--text); font-size:14px; line-height:1.6; }
+  header { background:var(--teal-700); color:#fff; padding:14px 24px;
+           display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  header .brand { font-size:18px; font-weight:700; }
+  header .sub { font-size:11px; opacity:.8; }
+  nav { display:flex; gap:4px; }
+  nav button { background:rgba(255,255,255,.12); color:#fff; border:none; padding:8px 14px;
+               border-radius:8px; font-size:13px; cursor:pointer; transition:.15s; }
+  nav button:hover { background:rgba(255,255,255,.25); }
+  nav button.active { background:#fff; color:var(--teal-700); font-weight:600; }
+  .wrap { max-width:1080px; margin:24px auto; padding:0 16px; }
+  .page { display:none; } .page.active { display:block; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+          padding:20px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+  .card + .card { margin-top:16px; }
+  .card-title { font-size:15px; font-weight:700; }
+  .card-sub { font-size:12px; color:var(--gray-500); margin-top:2px; margin-bottom:16px; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media(max-width:760px){ .grid2{ grid-template-columns:1fr; } }
+  .form-group { display:flex; flex-direction:column; gap:4px; margin-bottom:14px; }
+  label { font-size:12px; font-weight:600; color:var(--gray-700); }
+  input, select { border:1px solid var(--border); border-radius:8px; padding:9px 11px;
+                  font-size:13px; font-family:inherit; color:var(--text); background:#fff; outline:none; }
+  input:focus, select:focus { border-color:var(--teal-500); box-shadow:0 0 0 2px rgba(15,118,110,.15); }
+  .form-group.invalid input, .form-group.invalid select { border-color:var(--red); background:var(--red-bg); }
+  .err-msg { font-size:11px; color:var(--red); min-height:14px; }
+  .btn { display:inline-flex; align-items:center; gap:6px; padding:10px 18px; border-radius:8px;
+         font-size:13px; font-weight:600; cursor:pointer; border:none; transition:.15s; }
+  .btn-primary { background:var(--teal-600); color:#fff; } .btn-primary:hover { background:var(--teal-700); }
+  .btn-outline { background:#fff; color:var(--text); border:1px solid var(--border); }
+  .btn-outline:hover { background:var(--gray-50); }
+  .btn-sm { padding:5px 12px; font-size:12px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th { text-align:left; padding:9px 12px; background:var(--gray-50); font-size:11px; font-weight:700;
+       text-transform:uppercase; letter-spacing:.4px; color:var(--gray-500); border-bottom:1px solid var(--border); }
+  td { padding:11px 12px; border-bottom:1px solid var(--border); }
+  tr:last-child td { border-bottom:none; } tr:hover td { background:var(--gray-50); }
+  .badge { font-size:11px; padding:3px 9px; border-radius:99px; font-weight:600; white-space:nowrap; }
+  .b-green{ background:var(--green-bg); color:var(--green); }
+  .b-blue{ background:var(--blue-bg); color:var(--blue); }
+  .b-amber{ background:var(--amber-bg); color:var(--amber); }
+  .score-bar { display:flex; align-items:center; gap:8px; min-width:120px; }
+  .score-track { flex:1; height:7px; background:var(--gray-200); border-radius:4px; overflow:hidden; }
+  .score-fill { height:100%; border-radius:4px; }
+  .empty { text-align:center; padding:48px 20px; color:var(--gray-500); }
+  .empty .ico { font-size:40px; margin-bottom:10px; }
+  .spinner { width:26px; height:26px; border:3px solid var(--gray-200); border-top-color:var(--teal-500);
+             border-radius:50%; animation:spin .8s linear infinite; margin:0 auto 10px; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .factor-row { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); }
+  .factor-row:last-child { border-bottom:none; }
+  .factor-name { min-width:170px; font-size:13px; }
+  .factor-track { flex:1; height:8px; background:var(--gray-200); border-radius:4px; overflow:hidden; }
+  .factor-fill { height:100%; background:var(--teal-500); border-radius:4px; }
+  .factor-pct { min-width:46px; text-align:right; font-size:12px; font-weight:700; }
+  .result-head { padding:18px 20px; border-radius:var(--radius) var(--radius) 0 0; color:#fff; }
+  .result-score { font-size:38px; font-weight:800; line-height:1; }
+  .result-cat { font-size:13px; opacity:.9; margin-top:4px; }
+  .kv { display:flex; justify-content:space-between; padding:7px 0; border-bottom:1px dashed var(--border); font-size:13px; }
+  .kv:last-child { border-bottom:none; } .kv .k { color:var(--gray-500); }
+  .toast { position:fixed; bottom:24px; left:50%; transform:translate(-50%,80px); background:var(--gray-700);
+           color:#fff; padding:11px 18px; border-radius:8px; font-size:13px; opacity:0; transition:.3s; z-index:50; }
+  .toast.show { transform:translate(-50%,0); opacity:1; }
+  .toast.err { background:var(--red); } .toast.ok { background:var(--green); }
+  .link { color:var(--teal-600); cursor:pointer; text-decoration:underline; }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
+  @media(max-width:760px){ .stats{ grid-template-columns:repeat(2,1fr);} }
+  .stat { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px; }
+  .stat .lbl { font-size:11px; color:var(--gray-500); text-transform:uppercase; letter-spacing:.4px; font-weight:600; }
+  .stat .val { font-size:26px; font-weight:800; margin-top:3px; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <div class="brand">🏡 SiPrioritas</div>
+    <div class="sub">AI Penentu Prioritas Penerima Bantuan · Skala Mikro RT/RW · Demo statis</div>
+  </div>
+  <nav>
+    <button data-nav="input" class="active" onclick="go('input')">Input Data</button>
+    <button data-nav="hasil" onclick="go('hasil')">Hasil Klasifikasi</button>
+    <button data-nav="riwayat" onclick="go('riwayat')">Riwayat</button>
+  </nav>
+</header>
+
+<div class="wrap">
+  <!-- INPUT (UC-01) -->
+  <section class="page active" id="page-input">
+    <div class="grid2">
+      <div class="card">
+        <div class="card-title">Input Data Rumah Tangga</div>
+        <div class="card-sub">Isi seluruh kolom, lalu hitung skor prioritas (UC-01).</div>
+        <form id="form-warga" novalidate>
+          <div class="form-group" data-field="nama_kepala_keluarga">
+            <label>Nama Kepala Keluarga</label>
+            <input type="text" name="nama_kepala_keluarga" placeholder="contoh: Budi Santoso" autocomplete="off" />
+            <div class="err-msg" data-err="nama_kepala_keluarga"></div>
+          </div>
+          <div class="form-group" data-field="pendapatan_bulanan">
+            <label>Pendapatan Bulanan (Rp)</label>
+            <input type="number" name="pendapatan_bulanan" placeholder="contoh: 1200000" min="0" />
+            <div class="err-msg" data-err="pendapatan_bulanan"></div>
+          </div>
+          <div class="form-group" data-field="jumlah_tanggungan">
+            <label>Jumlah Tanggungan</label>
+            <input type="number" name="jumlah_tanggungan" placeholder="contoh: 4" min="0" step="1" />
+            <div class="err-msg" data-err="jumlah_tanggungan"></div>
+          </div>
+          <div class="form-group" data-field="kondisi_tempat_tinggal">
+            <label>Kondisi Tempat Tinggal</label>
+            <select name="kondisi_tempat_tinggal">
+              <option value="">— Pilih —</option>
+              <option>Rusak Berat</option><option>Rusak Sedang</option><option>Layak</option>
+            </select>
+            <div class="err-msg" data-err="kondisi_tempat_tinggal"></div>
+          </div>
+          <div class="form-group" data-field="kepemilikan_aset">
+            <label>Kepemilikan Aset</label>
+            <select name="kepemilikan_aset">
+              <option value="">— Pilih —</option>
+              <option>Rendah</option><option>Sedang</option><option>Tinggi</option>
+            </select>
+            <div class="err-msg" data-err="kepemilikan_aset"></div>
+          </div>
+          <div class="form-group" data-field="indikator_tambahan">
+            <label>Indikator Sosial Tambahan</label>
+            <select name="indikator_tambahan">
+              <option value="">— Pilih —</option>
+              <option>Disabilitas</option><option>Sakit Kronis</option><option>Lansia</option>
+              <option>Anak Putus Sekolah</option><option>Tidak Ada</option>
+            </select>
+            <div class="err-msg" data-err="indikator_tambahan"></div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">💾 Simpan &amp; Hitung Skor</button>
+        </form>
+      </div>
+
+      <div class="card" id="result-card">
+        <div class="empty" id="result-empty">
+          <div class="ico">🤖</div>
+          <div style="font-weight:600;">Belum ada hasil</div>
+          <div style="font-size:12px;">Isi formulir lalu klik Simpan &amp; Hitung Skor.</div>
+        </div>
+        <div id="result-body" style="display:none;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HASIL (UC-02 / UC-03) -->
+  <section class="page" id="page-hasil">
+    <div class="stats" id="hasil-stats"></div>
+    <div class="card">
+      <div class="card-title">Hasil Klasifikasi</div>
+      <div class="card-sub">Diurutkan dari skor prioritas tertinggi (UC-02). Klik baris untuk detail &amp; penjelasan (UC-03).</div>
+      <div id="hasil-loading"><div class="spinner"></div><div style="text-align:center;color:var(--gray-500);font-size:12px;">Memuat data…</div></div>
+      <div id="hasil-empty" class="empty" style="display:none;">
+        <div class="ico">📭</div>
+        <div style="font-weight:600;">Belum ada data tersedia</div>
+        <div style="font-size:12px;">Tambahkan data lewat <span class="link" onclick="go('input')">halaman Input Data</span>.</div>
+      </div>
+      <div class="table-wrap" id="hasil-table-wrap" style="display:none;">
+        <table>
+          <thead><tr><th>#</th><th>Nama KK</th><th>Skor Prioritas</th><th>Kategori</th><th></th></tr></thead>
+          <tbody id="hasil-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card" id="detail-card" style="display:none;"></div>
+  </section>
+
+  <!-- RIWAYAT (UC-08) -->
+  <section class="page" id="page-riwayat">
+    <div class="card">
+      <div class="card-title">Riwayat Penerima Bantuan</div>
+      <div class="card-sub">Pilih periode untuk melihat daftar penerima (UC-08).</div>
+      <div class="form-group" style="max-width:280px;">
+        <label>Periode Bantuan</label>
+        <select id="riwayat-periode" onchange="renderRiwayat()"></select>
+      </div>
+      <div id="riwayat-empty" class="empty" style="display:none;">
+        <div class="ico">📭</div>
+        <div style="font-weight:600;">Tidak ada data penerima untuk periode ini</div>
+      </div>
+      <div class="table-wrap" id="riwayat-table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Nama Kepala Keluarga</th><th>Skor Prioritas</th></tr></thead>
+          <tbody id="riwayat-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* ===== Mesin AI — port 1:1 dari app/ai_model.py (MCDM berbobot) ===== */
+const WEIGHTS = { pendapatan_bulanan:0.35, jumlah_tanggungan:0.20, kondisi_tempat_tinggal:0.20, kepemilikan_aset:0.15, indikator_tambahan:0.10 };
+const PENDAPATAN_CEILING = 5_000_000, TANGGUNGAN_CAP = 7;
+const KONDISI_SCORE = { "Rusak Berat":100, "Rusak Sedang":60, "Layak":10 };
+const ASET_SCORE = { "Rendah":100, "Sedang":50, "Tinggi":10 };
+const INDIKATOR_SCORE = { "Disabilitas":100, "Sakit Kronis":90, "Lansia":80, "Anak Putus Sekolah":70, "Tidak Ada":10 };
+const FITUR_LABEL = { pendapatan_bulanan:"Pendapatan Bulanan", jumlah_tanggungan:"Jumlah Tanggungan",
+  kondisi_tempat_tinggal:"Kondisi Tempat Tinggal", kepemilikan_aset:"Kepemilikan Aset", indikator_tambahan:"Indikator Sosial" };
+/* Batas validasi (selaras schemas.py) */
+const MAX_PENDAPATAN = 1_000_000_000, MAX_TANGGUNGAN = 20;
+
+function round(n, d=2){ const f=10**d; return Math.round(n*f)/f; }
+function needPendapatan(p){ if(p<=0) return 100; if(p>=PENDAPATAN_CEILING) return 0; return round((1-p/PENDAPATAN_CEILING)*100); }
+function needTanggungan(j){ if(j<=0) return 0; if(j>=TANGGUNGAN_CAP) return 100; return round(j/TANGGUNGAN_CAP*100); }
+
+function subscores(w){
+  return {
+    pendapatan_bulanan: needPendapatan(+w.pendapatan_bulanan),
+    jumlah_tanggungan: needTanggungan(+w.jumlah_tanggungan),
+    kondisi_tempat_tinggal: KONDISI_SCORE[w.kondisi_tempat_tinggal] ?? 0,
+    kepemilikan_aset: ASET_SCORE[w.kepemilikan_aset] ?? 0,
+    indikator_tambahan: INDIKATOR_SCORE[w.indikator_tambahan] ?? 0,
+  };
+}
+function kategoriDariSkor(s){ if(s>75) return "Sangat Layak"; if(s>=50) return "Layak"; return "Kurang Layak"; }
+function computePriority(w){
+  const subs = subscores(w);
+  const kontribusi = {}; for(const f in WEIGHTS) kontribusi[f] = round(subs[f]*WEIGHTS[f],4);
+  const skor = round(Object.values(kontribusi).reduce((a,b)=>a+b,0),2);
+  const total = Object.values(kontribusi).reduce((a,b)=>a+b,0) || 1;
+  const faktor = Object.keys(WEIGHTS).map(f=>({ fitur:f, label:FITUR_LABEL[f], nilai:w[f],
+    kontribusi:kontribusi[f], kontribusi_persen:round(kontribusi[f]/total*100,1) }));
+  faktor.sort((a,b)=>b.kontribusi-a.kontribusi);
+  return { skor_prioritas:skor, kategori_kelayakan:kategoriDariSkor(skor), faktor_penjelasan:faktor };
+}
+
+/* ===== Validasi — port 1:1 dari schemas.validate_warga_payload (pesan persis) ===== */
+function validatePayload(d){
+  const errors = {};
+  const nama = String(d.nama_kepala_keluarga ?? "").trim();
+  if(!nama) errors.nama_kepala_keluarga = "Nama kepala keluarga wajib diisi.";
+  else if(/\d/.test(nama)) errors.nama_kepala_keluarga = "Nama tidak boleh ada angka.";
+
+  const pRaw = d.pendapatan_bulanan;
+  if(pRaw === "" || pRaw == null){ errors.pendapatan_bulanan = "Pendapatan bulanan wajib diisi."; }
+  else {
+    const p = Number(pRaw);
+    if(Number.isNaN(p)) errors.pendapatan_bulanan = "Pendapatan bulanan harus berupa angka.";
+    else if(p < 0) errors.pendapatan_bulanan = "Pendapatan bulanan tidak boleh negatif.";
+    else if(p > MAX_PENDAPATAN) errors.pendapatan_bulanan = "Pendapatan melebihi batas maksimal.";
+  }
+
+  const tRaw = d.jumlah_tanggungan;
+  if(tRaw === "" || tRaw == null){ errors.jumlah_tanggungan = "Jumlah tanggungan wajib diisi."; }
+  else {
+    const t = Number(tRaw);
+    if(Number.isNaN(t) || !Number.isInteger(t)) errors.jumlah_tanggungan = "Jumlah tanggungan harus berupa bilangan bulat.";
+    else if(t < 0) errors.jumlah_tanggungan = "Jumlah tanggungan tidak boleh negatif.";
+    else if(t > MAX_TANGGUNGAN) errors.jumlah_tanggungan = "Jumlah tanggungan tidak wajar (melebihi batas maksimal).";
+  }
+
+  if(!KONDISI_SCORE[d.kondisi_tempat_tinggal]) errors.kondisi_tempat_tinggal = "Kondisi tempat tinggal wajib diisi.";
+  if(!ASET_SCORE[d.kepemilikan_aset]) errors.kepemilikan_aset = "Kepemilikan aset wajib diisi.";
+  if(!INDIKATOR_SCORE[d.indikator_tambahan]) errors.indikator_tambahan = "Indikator sosial wajib diisi.";
+
+  if(Object.keys(errors).length) return { ok:false, errors };
+  return { ok:true, data:{
+    nama_kepala_keluarga:nama, pendapatan_bulanan:Number(pRaw), jumlah_tanggungan:Number(tRaw),
+    kondisi_tempat_tinggal:d.kondisi_tempat_tinggal, kepemilikan_aset:d.kepemilikan_aset, indikator_tambahan:d.indikator_tambahan,
+  }};
+}
+
+/* ===== "Database" lokal via localStorage ===== */
+const DB_KEY = "siprioritas_warga", RW_KEY = "siprioritas_riwayat";
+function loadWarga(){ try { return JSON.parse(localStorage.getItem(DB_KEY)) || []; } catch { return []; } }
+function saveWarga(arr){ localStorage.setItem(DB_KEY, JSON.stringify(arr)); }
+function isDuplicate(nama){ const n = nama.trim().toLowerCase();
+  return loadWarga().some(w => w.nama_kepala_keluarga.trim().toLowerCase() === n); }
+function insertWarga(clean){
+  const arr = loadWarga();
+  const hasil = computePriority(clean);
+  const row = { id: (arr.reduce((m,w)=>Math.max(m,w.id),0)+1), ...clean, ...hasil };
+  arr.push(row); saveWarga(arr); return row;
+}
+function seedRiwayat(){
+  if(localStorage.getItem(RW_KEY)) return;
+  const seed = [
+    { periode:"Januari 2026", nama_kepala_keluarga:"Budi Santoso", skor_prioritas:81.5 },
+    { periode:"Januari 2026", nama_kepala_keluarga:"Siti Aminah", skor_prioritas:74.2 },
+    { periode:"Januari 2026", nama_kepala_keluarga:"Warsito", skor_prioritas:63.0 },
+    { periode:"Maret 2026", nama_kepala_keluarga:"Budi Santoso", skor_prioritas:88.0 },
+    { periode:"Maret 2026", nama_kepala_keluarga:"Dewi Rahayu", skor_prioritas:79.3 },
+    { periode:"Maret 2026", nama_kepala_keluarga:"Sulastri", skor_prioritas:58.6 },
+  ];
+  localStorage.setItem(RW_KEY, JSON.stringify(seed));
+}
+function loadRiwayat(){ try { return JSON.parse(localStorage.getItem(RW_KEY)) || []; } catch { return []; } }
+
+/* ===== UI helpers ===== */
+const $ = s => document.querySelector(s);
+function badgeClass(k){ return k==="Sangat Layak"?"b-green":k==="Layak"?"b-blue":"b-amber"; }
+function scoreColor(s){ return s>75?"#15803d":s>=50?"#1d4ed8":"#b45309"; }
+function rupiah(n){ return "Rp "+Number(n).toLocaleString("id-ID"); }
+function esc(s){ const d=document.createElement("div"); d.textContent=String(s); return d.innerHTML; }
+function toast(msg, kind=""){ const t=$("#toast"); t.textContent=msg; t.className="toast show "+kind;
+  setTimeout(()=>t.className="toast "+kind, 2800); }
+
+function go(name){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+  $("#page-"+name).classList.add("active");
+  document.querySelector(`nav button[data-nav="${name}"]`).classList.add("active");
+  if(name==="hasil") renderHasil();
+  if(name==="riwayat") renderPeriode();
+}
+
+/* ===== Form submit (UC-01) ===== */
+function clearErrors(){
+  document.querySelectorAll("#form-warga .form-group").forEach(g=>g.classList.remove("invalid"));
+  document.querySelectorAll("#form-warga .err-msg").forEach(e=>e.textContent="");
+}
+function showErrors(errors){
+  for(const field in errors){
+    const g = document.querySelector(`#form-warga .form-group[data-field="${field}"]`);
+    if(g) g.classList.add("invalid");
+    const e = document.querySelector(`#form-warga [data-err="${field}"]`);
+    if(e) e.textContent = errors[field];
+  }
+}
+$("#form-warga").addEventListener("submit", e=>{
+  e.preventDefault();
+  clearErrors();
+  const fd = new FormData(e.target);
+  const payload = Object.fromEntries(fd.entries());
+  const res = validatePayload(payload);
+  if(!res.ok){ showErrors(res.errors); toast("Periksa kembali isian yang ditandai.", "err"); return; }
+  if(isDuplicate(res.data.nama_kepala_keluarga)){
+    document.querySelector('#form-warga .form-group[data-field="nama_kepala_keluarga"]').classList.add("invalid");
+    document.querySelector('#form-warga [data-err="nama_kepala_keluarga"]').textContent = "Data sudah terdaftar.";
+    toast("Data sudah terdaftar.", "err"); return;
+  }
+  const row = insertWarga(res.data);
+  e.target.reset();
+  renderResult(row);
+  toast("Data tersimpan. Skor prioritas dihitung.", "ok");
+});
+
+function factorRows(faktor){
+  return faktor.map(f=>`
+    <div class="factor-row">
+      <div class="factor-name">${esc(f.label)}</div>
+      <div class="factor-track"><div class="factor-fill" style="width:${f.kontribusi_persen}%"></div></div>
+      <div class="factor-pct">${f.kontribusi_persen}%</div>
+    </div>`).join("");
+}
+function renderResult(row){
+  $("#result-empty").style.display="none";
+  const body = $("#result-body"); body.style.display="block";
+  const c = scoreColor(row.skor_prioritas);
+  body.innerHTML = `
+    <div class="result-head" style="background:${c};margin:-20px -20px 16px;">
+      <div class="result-score">${row.skor_prioritas}</div>
+      <div class="result-cat">${esc(row.kategori_kelayakan)} · ${esc(row.nama_kepala_keluarga)}</div>
+    </div>
+    <div style="font-size:12px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Penjelasan Keputusan (UC-03)</div>
+    ${factorRows(row.faktor_penjelasan)}
+    <button class="btn btn-outline btn-sm" style="margin-top:14px;" onclick="go('hasil')">Lihat semua hasil →</button>`;
+}
+
+/* ===== Hasil (UC-02) ===== */
+function renderHasil(){
+  $("#detail-card").style.display="none";
+  const loading=$("#hasil-loading"), empty=$("#hasil-empty"), wrap=$("#hasil-table-wrap");
+  loading.style.display="block"; empty.style.display="none"; wrap.style.display="none";
+  // Simulasi loading singkat agar indikator terlihat (UAT UC-02 TC.002).
+  setTimeout(()=>{
+    const rows = loadWarga().slice().sort((a,b)=>b.skor_prioritas-a.skor_prioritas);
+    loading.style.display="none";
+    renderHasilStats(rows);
+    if(rows.length===0){ empty.style.display="block"; return; }
+    wrap.style.display="block";
+    $("#hasil-tbody").innerHTML = rows.map((r,i)=>`
+      <tr style="cursor:pointer;" onclick="renderDetail(${r.id})">
+        <td style="color:var(--gray-500)">${i+1}</td>
+        <td><strong>${esc(r.nama_kepala_keluarga)}</strong></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:${r.skor_prioritas}%;background:${scoreColor(r.skor_prioritas)}"></div></div>
+          <strong style="color:${scoreColor(r.skor_prioritas)};min-width:42px">${r.skor_prioritas}</strong></div></td>
+        <td><span class="badge ${badgeClass(r.kategori_kelayakan)}">${esc(r.kategori_kelayakan)}</span></td>
+        <td><span class="link">Detail →</span></td>
+      </tr>`).join("");
+  }, 350);
+}
+function renderHasilStats(rows){
+  const n=rows.length, sl=rows.filter(r=>r.kategori_kelayakan==="Sangat Layak").length,
+        l=rows.filter(r=>r.kategori_kelayakan==="Layak").length,
+        kl=rows.filter(r=>r.kategori_kelayakan==="Kurang Layak").length;
+  $("#hasil-stats").innerHTML = `
+    <div class="stat"><div class="lbl">Total Warga Dinilai</div><div class="val" style="color:var(--teal-600)">${n}</div></div>
+    <div class="stat"><div class="lbl">Sangat Layak</div><div class="val" style="color:var(--green)">${sl}</div></div>
+    <div class="stat"><div class="lbl">Layak</div><div class="val" style="color:var(--blue)">${l}</div></div>
+    <div class="stat"><div class="lbl">Kurang Layak</div><div class="val" style="color:var(--amber)">${kl}</div></div>`;
+}
+function renderDetail(id){
+  const r = loadWarga().find(w=>w.id===id);
+  const card = $("#detail-card");
+  if(!r){ card.style.display="block"; card.innerHTML = `<div class="empty"><div class="ico">⚠️</div><div style="font-weight:600;">Data warga tidak ditemukan</div></div>`; return; }
+  const c = scoreColor(r.skor_prioritas);
+  card.style.display="block";
+  card.innerHTML = `
+    <div class="result-head" style="background:${c};margin:-20px -20px 16px;border-radius:12px 12px 0 0;display:flex;align-items:center;justify-content:space-between;">
+      <div><div class="result-score">${r.skor_prioritas}</div><div class="result-cat">${esc(r.kategori_kelayakan)}</div></div>
+      <div style="text-align:right;"><div style="font-weight:700;font-size:16px;">${esc(r.nama_kepala_keluarga)}</div></div>
+    </div>
+    <div class="grid2">
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Data Mentah</div>
+        <div class="kv"><span class="k">Pendapatan Bulanan</span><span>${rupiah(r.pendapatan_bulanan)}</span></div>
+        <div class="kv"><span class="k">Jumlah Tanggungan</span><span>${esc(r.jumlah_tanggungan)} orang</span></div>
+        <div class="kv"><span class="k">Kondisi Tempat Tinggal</span><span>${esc(r.kondisi_tempat_tinggal)}</span></div>
+        <div class="kv"><span class="k">Kepemilikan Aset</span><span>${esc(r.kepemilikan_aset)}</span></div>
+        <div class="kv"><span class="k">Indikator Sosial</span><span>${esc(r.indikator_tambahan)}</span></div>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:.4px;margin-bottom:8px;">Penjelasan Keputusan (UC-03)</div>
+        ${factorRows(r.faktor_penjelasan)}
+      </div>
+    </div>`;
+  card.scrollIntoView({ behavior:"smooth", block:"nearest" });
+}
+
+/* ===== Riwayat (UC-08) ===== */
+function renderPeriode(){
+  const periodes = [...new Set(loadRiwayat().map(r=>r.periode))];
+  $("#riwayat-periode").innerHTML = periodes.map(p=>`<option>${esc(p)}</option>`).join("");
+  renderRiwayat();
+}
+function renderRiwayat(){
+  const periode = $("#riwayat-periode").value;
+  const rows = loadRiwayat().filter(r=>r.periode===periode).sort((a,b)=>b.skor_prioritas-a.skor_prioritas);
+  const empty=$("#riwayat-empty"), wrap=$("#riwayat-table-wrap");
+  if(rows.length===0){ empty.style.display="block"; wrap.style.display="none"; return; }
+  empty.style.display="none"; wrap.style.display="block";
+  $("#riwayat-tbody").innerHTML = rows.map((r,i)=>`
+    <tr><td style="color:var(--gray-500)">${i+1}</td><td><strong>${esc(r.nama_kepala_keluarga)}</strong></td>
+    <td><strong style="color:${scoreColor(r.skor_prioritas)}">${r.skor_prioritas}</strong></td></tr>`).join("");
+}
+
+/* ===== Init ===== */
+seedRiwayat();
+go("input");
+</script>
+</body>
+</html>

@@ -107,9 +107,30 @@ dan integrasi endpoint API ketiga fitur.
 
 ## Deployment
 
-- **Frontend statis:** halaman dapat di-host di GitHub Pages bila dipisah; pada
-  prototipe ini frontend disajikan langsung oleh FastAPI (Jinja2) untuk
-  kemudahan demo.
+### Demo statis di GitHub Pages (`docs/index.html`)
+
+`docs/index.html` adalah **port klien-penuh** (HTML+JS, tanpa backend) dari
+prototipe ini. Mesin skor MCDM dan aturan validasi di-port 1:1 dari
+`app/ai_model.py` dan `app/models/schemas.py` (parity sudah diverifikasi:
+input contoh menghasilkan skor 72.03 / "Layak" identik di Python dan JS).
+"Database" memakai `localStorage`; data riwayat (Januari 2026 & Maret 2026)
+di-seed otomatis. Mencakup UC-01 (input+validasi), UC-02/UC-03 (hasil, detail,
+penjelasan faktor), dan UC-08 (riwayat per periode).
+
+Mengaktifkan GitHub Pages:
+
+1. Commit & push folder `docs/` ke branch `main`.
+2. Repo GitHub → **Settings → Pages** → Source: **Deploy from a branch** →
+   Branch: `main`, Folder: `/docs` → **Save**.
+3. Situs live di `https://proprophet2503.github.io/FinalProject_KPPL/`
+   (beberapa menit setelah save).
+
+Demo dapat juga dibuka langsung tanpa server: cukup buka `docs/index.html`
+di browser (double-click).
+
+### Backend penuh (FastAPI)
+
+- **Frontend (Jinja2):** disajikan langsung oleh FastAPI untuk demo lokal.
 - **Backend:** dijalankan lokal via Uvicorn. CORS dibuka longgar untuk demo.
 
 ## Catatan
