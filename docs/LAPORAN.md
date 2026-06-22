@@ -169,6 +169,8 @@ dilakukan di server.
    `database.sql`, `docs/`, `legacy/`, `.git/`.
 5. Buka domain.
 
+**Aplikasi live:** <https://bantuansosiallokal.great-site.net>
+
 Akun default (password `Admin#2026`): admin `0000000000000000` /
 `admin@bansos.local`; petugas contoh `1111111111111111` / `petugas@bansos.local`
 (kelurahan Keputih, sudah disetujui).

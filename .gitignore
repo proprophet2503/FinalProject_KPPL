@@ -6,6 +6,7 @@ venv/
 .pytest_cache/
 .coverage
 htmlcov/
+docs/
 
 # Data artefak runtime (DB & model di-generate)
 data/bansos.db

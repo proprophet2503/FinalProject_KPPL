@@ -5,7 +5,7 @@ Sistem prioritas penerima bantuan sosial skala mikro untuk **Kecamatan Sukolilo*
 (MCDM transparan)** beserta kategori kelayakan dan rincian faktornya. **Admin**
 memantau seluruh kecamatan, memverifikasi petugas, dan melihat riwayat penyaluran.
 
-**Link hosting (live):** _<!-- isi URL InfinityFree Anda di sini -->_
+**Link hosting (live):** <https://bantuansosiallokal.great-site.net>
 
 ---
 
