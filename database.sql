@@ -1,6 +1,6 @@
 -- ===========================================================================
 -- SiPrioritas Bansos — Skema + Seed (MySQL / phpMyAdmin)
--- Kecamatan Sukolilo. Peran: Petugas (register + verifikasi admin) & Admin.
+-- RW Bumi Marina Emas. Peran: Petugas (register + verifikasi admin) & Admin.
 --
 -- Cara pakai: phpMyAdmin -> pilih database -> tab Import -> unggah file ini.
 -- Skrip drop-safe: aman diimpor ulang.
@@ -24,14 +24,14 @@ CREATE TABLE users (
     email         VARCHAR(150) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     role          ENUM('petugas','admin') NOT NULL DEFAULT 'petugas',
-    kelurahan     VARCHAR(50)  NULL,           -- NULL untuk admin (akses se-kecamatan)
+    kelurahan     VARCHAR(50)  NULL,           -- NULL untuk admin (akses se-RW)
     status        ENUM('pending','approved','rejected') NOT NULL DEFAULT 'pending',
     created_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ---------------------------------------------------------------------------
--- households : data rumah tangga (banyak record per petugas, per kelurahan)
+-- households : data rumah tangga (banyak record per petugas, per RT)
 -- ---------------------------------------------------------------------------
 CREATE TABLE households (
     id                     INT AUTO_INCREMENT PRIMARY KEY,
@@ -89,22 +89,22 @@ INSERT INTO users (nik, nama_lengkap, email, password_hash, role, kelurahan, sta
  '$2b$12$mzAAhnCDY/PQdMXolE63ruJuXjNzxGEACuLlc0gZIpQjPZbZmdCBm',
  'admin', NULL, 'approved');
 
--- Petugas contoh (sudah disetujui). Kelurahan Keputih. Password: Admin#2026
+-- Petugas contoh (sudah disetujui). RT 1. Password: Admin#2026
 INSERT INTO users (nik, nama_lengkap, email, password_hash, role, kelurahan, status) VALUES
-('1111111111111111', 'Petugas Keputih', 'petugas@bansos.local',
+('1111111111111111', 'Petugas RT 1', 'petugas@bansos.local',
  '$2b$12$mzAAhnCDY/PQdMXolE63ruJuXjNzxGEACuLlc0gZIpQjPZbZmdCBm',
- 'petugas', 'Keputih', 'approved');
+ 'petugas', 'RT 1', 'approved');
 
 -- Data rumah tangga contoh (skor sudah dihitung sesuai bobot MCDM).
 INSERT INTO households
    (petugas_id, kelurahan, nama_kk, nik_kk, alamat, pendapatan_bulanan,
     jumlah_tanggungan, kondisi_tempat_tinggal, kepemilikan_aset, indikator_tambahan,
     skor, kategori, faktor_json) VALUES
-(NULL, 'Keputih',    'Budi Santoso', '3578010101800001', 'Jl. Keputih Tegal No. 10',
+(NULL, 'RT 1',    'Budi Santoso', '3578010101800001', 'Jl. Keputih Tegal No. 10',
    800000,  4, 'Rusak Sedang', 'Rendah', 'Anak Putus Sekolah', 74.83, 'Layak', NULL),
-(NULL, 'Keputih',    'Siti Aminah',  '3578010101850002', 'Jl. Keputih Gg. II No. 5',
+(NULL, 'RT 1',    'Siti Aminah',  '3578010101850002', 'Jl. Keputih Gg. II No. 5',
    1500000, 2, 'Layak', 'Sedang', 'Tidak Ada', 40.71, 'Kurang Layak', NULL),
-(NULL, 'Semolowaru', 'Warsito',      '3578010101700003', 'Jl. Semolowaru Bahari No. 3',
+(NULL, 'RT 2', 'Warsito',      '3578010101700003', 'Jl. Semolowaru Bahari No. 3',
    300000,  6, 'Rusak Berat', 'Rendah', 'Disabilitas', 95.04, 'Sangat Layak', NULL);
 
 -- Periode riwayat.
@@ -114,7 +114,7 @@ INSERT INTO periode_bantuan (id, label, tahun, bulan) VALUES
 
 -- Penerima per periode (dengan kelurahan untuk filter admin).
 INSERT INTO penerima (periode_id, kelurahan, nama, skor, kategori) VALUES
-(1, 'Keputih',         'Budi Santoso', 81.50, 'Sangat Layak'),
-(1, 'Semolowaru',      'Warsito',      63.00, 'Layak'),
-(2, 'Semolowaru',      'Warsito',      88.00, 'Sangat Layak'),
-(2, 'Menur Pumpungan', 'Dewi Rahayu',  72.30, 'Layak');
+(1, 'RT 1',         'Budi Santoso', 81.50, 'Sangat Layak'),
+(1, 'RT 2',      'Warsito',      63.00, 'Layak'),
+(2, 'RT 2',      'Warsito',      88.00, 'Sangat Layak'),
+(2, 'RT 3', 'Dewi Rahayu',  72.30, 'Layak');

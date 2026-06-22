@@ -53,8 +53,8 @@ page_header('Akun');
             <dl class="ktp">
                 <dt>NIK</dt><dd><?= e($u['nik']) ?></dd>
                 <dt>Peran</dt><dd>Petugas</dd>
-                <dt>Kelurahan</dt><dd><?= e($u['kelurahan']) ?></dd>
-                <dt>Kecamatan</dt><dd><?= e(KECAMATAN) ?></dd>
+                <dt>RT</dt><dd><?= e($u['kelurahan']) ?></dd>
+                <dt>RW</dt><dd><?= e(KECAMATAN) ?></dd>
             </dl>
         </aside>
 
@@ -75,7 +75,7 @@ page_header('Akun');
             </fieldset>
             <div class="form-actions">
                 <button type="submit" class="btn-primary">Simpan</button>
-                <a href="status.php" class="btn-link">Ke Data Kelurahan</a>
+                <a href="status.php" class="btn-link">Ke Data RT</a>
             </div>
         </form>
     </div>

@@ -1,9 +1,9 @@
 # SiPrioritas Bansos — PHP + MySQL (InfinityFree)
 
-Sistem prioritas penerima bantuan sosial skala mikro untuk **Kecamatan Sukolilo**.
-**Petugas** kelurahan mendata rumah tangga; sistem menghitung **skor prioritas
+Sistem prioritas penerima bantuan sosial skala mikro untuk **RW Bumi Marina Emas**.
+**Petugas** RT mendata rumah tangga; sistem menghitung **skor prioritas
 (MCDM transparan)** beserta kategori kelayakan dan rincian faktornya. **Admin**
-memantau seluruh kecamatan, memverifikasi petugas, dan melihat riwayat penyaluran.
+memantau seluruh RW, memverifikasi petugas, dan melihat riwayat penyaluran.
 
 **Link hosting (live):** <https://bantuansosiallokal.great-site.net>
 
@@ -14,7 +14,7 @@ memantau seluruh kecamatan, memverifikasi petugas, dan melihat riwayat penyalura
 - **Database:** MySQL (impor `database.sql` via phpMyAdmin)
 - **Frontend:** HTML + CSS + JavaScript murni (HTML tertanam di `.php`)
 - **Hosting:** InfinityFree (gratis)
-- **Penilaian:** MCDM berbobot, identik dengan prototipe `legacy/app/ai_model.py`
+- **Penilaian:** **skor** prioritas via MCDM berbobot; **kategori** kelayakan via Decision Tree yang diekstrak menjadi aturan `if/else` (`classifier.php`, lihat `model_desc.md`)
 
 ---
 
@@ -22,15 +22,14 @@ memantau seluruh kecamatan, memverifikasi petugas, dan melihat riwayat penyalura
 
 | Peran | Daftar? | Akses |
 |-------|---------|-------|
-| **Petugas** | Ya (register + login) | Memilih **1 kelurahan** saat daftar. Setelah **disetujui admin**: input & kelola data rumah tangga, lihat skor — **hanya di kelurahannya**. |
-| **Admin** | Tidak (preprogrammed, login saja) | Seluruh Kec. Sukolilo. Verifikasi petugas, dashboard semua data (filter kelurahan), riwayat penyaluran. |
+| **Petugas** | Ya (register + login) | Memilih **1 RT** saat daftar. Setelah **disetujui admin**: input & kelola data rumah tangga, lihat skor — **hanya di RT-nya**. |
+| **Admin** | Tidak (preprogrammed, login saja) | Seluruh RW Bumi Marina Emas. Verifikasi petugas, dashboard semua data (filter RT), riwayat penyaluran. |
 
-7 kelurahan Sukolilo (dropdown): Semolowaru, Nginden Jangkungan, Menur Pumpungan,
-Klampis Ngasem, Gebang Putih, Keputih, Medokan Semampir.
+5 RT di RW Bumi Marina Emas (dropdown): RT 1, RT 2, RT 3, RT 4, RT 5.
 
 ### Akun default (password: `Admin#2026`)
 - **Admin:** NIK `0000000000000000` · `admin@bansos.local`
-- **Petugas contoh (Keputih, approved):** NIK `1111111111111111` · `petugas@bansos.local`
+- **Petugas contoh (RT 1, approved):** NIK `1111111111111111` · `petugas@bansos.local`
 
 > Ganti password setelah deploy (update kolom `password_hash` via phpMyAdmin).
 
@@ -52,23 +51,23 @@ Klampis Ngasem, Gebang Putih, Keputih, Medokan Semampir.
 ## Workflow
 
 ### Petugas
-1. **Daftar** (`register.php`): NIK, nama, email, password, **pilih kelurahan**.
+1. **Daftar** (`register.php`): NIK, nama, email, password, **pilih RT**.
 2. Status awal **menunggu verifikasi** (`pending.php`).
 3. Admin **menyetujui** → bisa masuk dashboard petugas.
    (Ditolak → layar "Ditolak".)
 4. **Input data** rumah tangga (`input.php`): nama KK, NIK KK, alamat, pendapatan,
    tanggungan, kondisi rumah, aset, indikator sosial (semua dropdown/angka).
 5. Sistem hitung **skor + kategori** otomatis.
-6. **Lihat daftar** (`status.php`) — hanya kelurahannya; **detail** (`detail.php`)
+6. **Lihat daftar** (`status.php`) — hanya RT-nya; **detail** (`detail.php`)
    menampilkan faktor %; bisa **Edit/Hapus**.
 
 ### Admin
 1. **Login** (`login.php`).
 2. **Verifikasi petugas** (`admin_verifikasi.php`): Terima / Tolak / Nonaktifkan.
-3. **Dashboard** (`admin_dashboard.php`): peringkat semua rumah tangga se-Sukolilo,
-   **filter per kelurahan**, detail + penjelasan faktor.
+3. **Dashboard** (`admin_dashboard.php`): peringkat semua rumah tangga se-RW,
+   **filter per RT**, detail + penjelasan faktor.
 4. **Riwayat** (`admin_riwayat.php`): penerima per periode (berjalan + historis),
-   **filter kelurahan**.
+   **filter RT**.
 
 ---
 
@@ -77,23 +76,25 @@ Klampis Ngasem, Gebang Putih, Keputih, Medokan Semampir.
 ```
 FinalProject_KPPL/            (root repo = root deploy)
 ├── index.php                Beranda publik (landing + CTA)
-├── register.php             Daftar petugas (+ pilih kelurahan)
+├── register.php             Daftar petugas (+ pilih RT)
 ├── login.php / logout.php   Autentikasi (NIK + Email + Password)
 ├── pending.php              Layar status verifikasi petugas
-├── status.php               Daftar data rumah tangga kelurahan (petugas)
+├── status.php               Daftar data rumah tangga RT (petugas)
 ├── input.php                Tambah / edit data rumah tangga (petugas)
 ├── detail.php               Detail skor + faktor + hapus (petugas)
 ├── akun.php                 Ubah email/password (petugas)
-├── admin_dashboard.php      Peringkat + filter kelurahan (admin)
+├── admin_dashboard.php      Peringkat + filter RT (admin)
 ├── admin_verifikasi.php     Verifikasi petugas (admin)
 ├── admin_riwayat.php        Riwayat penerima per periode (admin)
 ├── lib.php                  INTI: PDO, MCDM, validasi, auth, CRUD
+├── classifier.php           Klasifikasi kategori (rule-based hasil ekstraksi Decision Tree)
 ├── partials.php             Header / navbar / flash / footer
 ├── config.php               Konfigurasi DB (EDIT saat deploy)
 ├── assets/css/app.css  assets/js/app.js
 ├── database.sql             Skema + seed (impor ke phpMyAdmin)
+├── model_desc.md            Dokumentasi model + ekstraksi Decision Tree
 ├── docs/                    Dokumentasi (tidak diunggah ke htdocs)
-└── legacy/                  Prototipe Python lama (tidak diunggah)
+└── legacy/                  Prototipe Python lama + train_tree.py (tidak diunggah)
 ```
 
 ---
@@ -109,8 +110,11 @@ FinalProject_KPPL/            (root repo = root deploy)
 
 ---
 
-## Mekanisme Skor (MCDM)
+## Mekanisme Skor & Klasifikasi
 
+Penilaian memakai dua mekanisme yang saling melengkapi:
+
+### A. Skor prioritas (MCDM) — untuk peringkat & penjelasan
 Skor 0–100, makin tinggi makin prioritas.
 
 | Kriteria | Bobot |
@@ -125,7 +129,16 @@ Normalisasi: pendapatan ≤0→100, ≥Rp5.000.000→0, selainnya `(1−p/5.000.
 tanggungan ≤0→0, ≥7→100, selainnya `(t/7)×100`; kondisi Rusak Berat 100 / Rusak
 Sedang 60 / Layak 10; aset Rendah 100 / Sedang 50 / Tinggi 10; indikator
 Disabilitas 100 / Sakit Kronis 90 / Lansia 80 / Anak Putus Sekolah 70 / Tidak Ada 10.
-**Kategori:** >75 Sangat Layak · 50–75 Layak · <50 Kurang Layak.
+Skor ini dipakai untuk **peringkat**, **penjelasan faktor (%)**, dan penentuan
+**penerima** (skor ≥ 50).
+
+### B. Kategori kelayakan (Decision Tree → rule-based)
+Kategori (**Sangat Layak / Layak / Kurang Layak**) **tidak** lagi memakai ambang
+skor, melainkan **model Decision Tree** yang dilatih (scikit-learn) pada
+`legacy/data/dummy_dataset.csv`, lalu **diekstrak menjadi aturan `if/else`** di
+`classifier.php` (deterministik, transparan). Akurasi ~0.85 (semua data) / ~0.82
+(test). Detail pelatihan, pohon, dan cara ekstraksi: lihat **`model_desc.md`**.
+Regenerasi: `python3 legacy/data/train_tree.py` lalu salin output PHP ke `classifier.php`.
 
 ---
 
@@ -139,7 +152,7 @@ Disabilitas 100 / Sakit Kronis 90 / Lansia 80 / Anak Putus Sekolah 70 / Tidak Ad
 | Password | minimal 8 karakter |
 | Pendapatan | angka saja (format rupiah otomatis), maks Rp 1.000.000.000 |
 | Jumlah tanggungan | bilangan bulat, maks 20 |
-| Kondisi/Aset/Indikator/Kelurahan | wajib dipilih dari **dropdown** |
+| Kondisi/Aset/Indikator/RT | wajib dipilih dari **dropdown** |
 
 JS hanya bantu format di klien; validasi otoritatif di server.
 
@@ -164,7 +177,7 @@ Buat DB `bansos`, impor `database.sql`, biarkan `config.php` default
 - Password di-hash `password_hash()` (bcrypt); login `password_verify()`.
 - Prepared statements (anti SQL injection); output di-escape (anti XSS).
 - Token CSRF pada semua form POST; `session_regenerate_id()` setelah login.
-- Scoping: petugas hanya akses data kelurahannya; akun aktif setelah diverifikasi admin.
+- Scoping: petugas hanya akses data RT-nya; akun aktif setelah diverifikasi admin.
 
 ---
 

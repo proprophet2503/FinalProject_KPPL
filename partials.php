@@ -32,7 +32,7 @@ function page_header(string $title): void
                 <a href="admin_verifikasi.php">Verifikasi</a>
                 <a href="admin_riwayat.php">Riwayat</a>
             <?php elseif ($petugas && $approved): ?>
-                <a href="status.php">Data Kelurahan</a>
+                <a href="status.php">Data RT</a>
                 <a href="input.php">Input Data</a>
                 <a href="akun.php">Akun</a>
             <?php endif; ?>

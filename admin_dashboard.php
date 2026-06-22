@@ -19,18 +19,18 @@ $rows = households_all($filter !== '' ? $filter : null);
 
 $total    = count($rows);
 $penerima = count(array_filter($rows, fn($r) => (float) $r['skor'] >= 50));
-$cakupan  = $filter !== '' ? $filter : 'Seluruh Kec. ' . KECAMATAN;
+$cakupan  = $filter !== '' ? $filter : 'Seluruh ' . KECAMATAN;
 
 page_header('Dashboard Admin');
 ?>
 <section class="admin">
     <h1>Dashboard Admin</h1>
-    <p class="muted">Pemantauan data rumah tangga Kecamatan <?= e(KECAMATAN) ?>.</p>
+    <p class="muted">Pemantauan data rumah tangga <?= e(KECAMATAN) ?>.</p>
 
     <form method="get" action="admin_dashboard.php" class="period-picker">
-        <label for="kelurahan">Kelurahan</label>
+        <label for="kelurahan">RT</label>
         <select id="kelurahan" name="kelurahan" onchange="this.form.submit()">
-            <option value="">Semua Kelurahan</option>
+            <option value="">Semua RT</option>
             <?php foreach (KELURAHAN as $k): ?>
                 <option value="<?= e($k) ?>"<?= $filter === $k ? ' selected' : '' ?>><?= e($k) ?></option>
             <?php endforeach; ?>
@@ -82,7 +82,7 @@ page_header('Dashboard Admin');
     <?php else: ?>
     <table class="rank-table">
         <thead>
-            <tr><th>#</th><th>Nama KK</th><th>NIK</th><th>Kelurahan</th><th>Pendapatan</th><th>Skor</th><th>Kategori</th><th></th></tr>
+            <tr><th>#</th><th>Nama KK</th><th>NIK</th><th>RT</th><th>Pendapatan</th><th>Skor</th><th>Kategori</th><th></th></tr>
         </thead>
         <tbody>
             <?php foreach ($rows as $i => $r): ?>

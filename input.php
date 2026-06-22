@@ -62,7 +62,7 @@ $action = 'input.php' . ($editId ? '?id=' . $editId : '');
 ?>
 <section class="form-wrap">
     <h1><?= e($title) ?></h1>
-    <p class="muted">Kelurahan <?= e($kel) ?>, Kec. <?= e(KECAMATAN) ?>. Semua isian wajib.</p>
+    <p class="muted"><?= e($kel) ?>, <?= e(KECAMATAN) ?>. Semua isian wajib.</p>
     <form method="post" action="<?= e($action) ?>" novalidate class="form-grid" id="formInput">
         <?= csrf_field() ?>
 

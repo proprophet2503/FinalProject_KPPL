@@ -11,6 +11,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/classifier.php';
 
 // ===========================================================================
 // SESSION
@@ -99,17 +100,17 @@ function csrf_check(): void
 }
 
 // ===========================================================================
-// WILAYAH (Kecamatan Sukolilo)
+// WILAYAH (RW Bumi Marina Emas)
+// Catatan: nama konstanta & kolom DB tetap (KECAMATAN/KELURAHAN) demi
+// kompatibilitas; secara konsep KECAMATAN = RW, KELURAHAN = RT.
 // ===========================================================================
-const KECAMATAN = 'Sukolilo';
+const KECAMATAN = 'RW Bumi Marina Emas';
 const KELURAHAN = [
-    'Semolowaru',
-    'Nginden Jangkungan',
-    'Menur Pumpungan',
-    'Klampis Ngasem',
-    'Gebang Putih',
-    'Keputih',
-    'Medokan Semampir',
+    'RT 1',
+    'RT 2',
+    'RT 3',
+    'RT 4',
+    'RT 5',
 ];
 
 // Status verifikasi akun petugas.
@@ -314,7 +315,9 @@ function compute_priority(array $w): array
 
     return [
         'skor_prioritas'     => $skor,
-        'kategori_kelayakan' => kategori_dari_skor($skor),
+        // Kategori: hasil ekstraksi Decision Tree (classifier.php). Skor & faktor
+        // tetap MCDM. kategori_dari_skor() dipertahankan sebagai pembanding/fallback.
+        'kategori_kelayakan' => kategori_decision_tree($w),
         'faktor_penjelasan'  => $faktor,
     ];
 }
@@ -363,7 +366,7 @@ function validate_petugas_register(array $in): array
     }
 
     if (!in_array($in['kelurahan'] ?? '', KELURAHAN, true)) {
-        $err['kelurahan'] = 'Kelurahan wajib dipilih dari daftar.';
+        $err['kelurahan'] = 'RT wajib dipilih dari daftar.';
     }
 
     return $err;

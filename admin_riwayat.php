@@ -62,7 +62,7 @@ if ($sel === 'current') {
     }
 }
 
-$cakupan = $filter !== '' ? $filter : 'Seluruh Kec. ' . KECAMATAN;
+$cakupan = $filter !== '' ? $filter : 'Seluruh ' . KECAMATAN;
 
 page_header('Riwayat Bantuan');
 ?>
@@ -77,9 +77,9 @@ page_header('Riwayat Bantuan');
                 <option value="<?= (int) $p['id'] ?>"<?= $sel === (string) $p['id'] ? ' selected' : '' ?>><?= e($p['label']) ?></option>
             <?php endforeach; ?>
         </select>
-        <label for="kelurahan">Kelurahan</label>
+        <label for="kelurahan">RT</label>
         <select id="kelurahan" name="kelurahan" onchange="this.form.submit()">
-            <option value="">Semua Kelurahan</option>
+            <option value="">Semua RT</option>
             <?php foreach (KELURAHAN as $k): ?>
                 <option value="<?= e($k) ?>"<?= $filter === $k ? ' selected' : '' ?>><?= e($k) ?></option>
             <?php endforeach; ?>
@@ -92,7 +92,7 @@ page_header('Riwayat Bantuan');
         <p class="empty">Tidak ada data penerima untuk periode ini.</p>
     <?php else: ?>
     <table class="rank-table">
-        <thead><tr><th>#</th><th>Nama</th><th>Kelurahan</th><th>Skor</th><th>Kategori</th></tr></thead>
+        <thead><tr><th>#</th><th>Nama</th><th>RT</th><th>Skor</th><th>Kategori</th></tr></thead>
         <tbody>
             <?php foreach ($penerima as $i => $r): ?>
             <tr>

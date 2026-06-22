@@ -34,14 +34,14 @@ page_header('Verifikasi Petugas');
 ?>
 <section class="admin">
     <h1>Verifikasi Petugas</h1>
-    <p class="muted">Setujui atau tolak pendaftaran petugas di Kecamatan <?= e(KECAMATAN) ?>.</p>
+    <p class="muted">Setujui atau tolak pendaftaran petugas di <?= e(KECAMATAN) ?>.</p>
 
     <h2>Menunggu Verifikasi (<?= count($pending) ?>)</h2>
     <?php if (!$pending): ?>
         <p class="empty">Tidak ada pendaftaran yang menunggu.</p>
     <?php else: ?>
     <table class="rank-table">
-        <thead><tr><th>Nama</th><th>NIK</th><th>Email</th><th>Kelurahan</th><th>Aksi</th></tr></thead>
+        <thead><tr><th>Nama</th><th>NIK</th><th>Email</th><th>RT</th><th>Aksi</th></tr></thead>
         <tbody>
             <?php foreach ($pending as $p): ?>
             <tr>
@@ -64,7 +64,7 @@ page_header('Verifikasi Petugas');
         <p class="empty">Belum ada petugas aktif.</p>
     <?php else: ?>
     <table class="rank-table">
-        <thead><tr><th>Nama</th><th>NIK</th><th>Kelurahan</th><th>Aksi</th></tr></thead>
+        <thead><tr><th>Nama</th><th>NIK</th><th>RT</th><th>Aksi</th></tr></thead>
         <tbody>
             <?php foreach ($approved as $p): ?>
             <tr>
@@ -81,7 +81,7 @@ page_header('Verifikasi Petugas');
     <?php if ($rejected): ?>
     <h2>Ditolak / Nonaktif (<?= count($rejected) ?>)</h2>
     <table class="rank-table">
-        <thead><tr><th>Nama</th><th>NIK</th><th>Kelurahan</th><th>Aksi</th></tr></thead>
+        <thead><tr><th>Nama</th><th>NIK</th><th>RT</th><th>Aksi</th></tr></thead>
         <tbody>
             <?php foreach ($rejected as $p): ?>
             <tr>

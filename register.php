@@ -70,7 +70,7 @@ page_header('Daftar Petugas');
 <section class="form-wrap">
     <h1>Pendaftaran Petugas</h1>
     <p class="muted">
-        Daftar sebagai petugas pendataan di Kecamatan <?= e(KECAMATAN) ?>.
+        Daftar sebagai petugas pendataan di <?= e(KECAMATAN) ?>.
         Akun aktif setelah diverifikasi admin.
     </p>
     <form method="post" action="register.php" novalidate class="form-grid" id="formRegister">
@@ -82,9 +82,9 @@ page_header('Daftar Petugas');
         field('password', 'Password (min. 8 karakter)', $old, $errors, 'password');
         ?>
         <div class="form-group<?= isset($errors['kelurahan']) ? ' invalid' : '' ?>">
-            <label for="kelurahan">Kelurahan (Kec. <?= e(KECAMATAN) ?>)</label>
+            <label for="kelurahan">RT (<?= e(KECAMATAN) ?>)</label>
             <select id="kelurahan" name="kelurahan">
-                <option value="">-- pilih kelurahan --</option>
+                <option value="">-- pilih RT --</option>
                 <?php foreach (KELURAHAN as $k): ?>
                     <option value="<?= e($k) ?>"<?= ($old['kelurahan'] ?? '') === $k ? ' selected' : '' ?>><?= e($k) ?></option>
                 <?php endforeach; ?>

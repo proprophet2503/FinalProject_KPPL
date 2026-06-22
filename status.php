@@ -8,13 +8,13 @@ $rows = households_by_kelurahan($kel);
 $total    = count($rows);
 $layak    = count(array_filter($rows, fn($r) => (float) $r['skor'] >= 50));
 
-page_header('Data Kelurahan');
+page_header('Data RT');
 ?>
 <section class="petugas">
     <div class="page-head">
         <div>
             <h1>Data Rumah Tangga — <?= e($kel) ?></h1>
-            <p class="muted">Kec. <?= e(KECAMATAN) ?>. Skor prioritas dihitung otomatis (MCDM).</p>
+            <p class="muted"><?= e(KECAMATAN) ?>. Skor prioritas dihitung otomatis (MCDM).</p>
         </div>
         <a href="input.php" class="btn-primary">+ Input Data</a>
     </div>

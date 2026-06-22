@@ -38,7 +38,7 @@ page_header('Detail Rumah Tangga');
     <h2>Rincian Data</h2>
     <table class="data-table">
         <tr><th>NIK Kepala Keluarga</th><td><?= e($r['nik_kk']) ?></td></tr>
-        <tr><th>Kelurahan</th><td><?= e($r['kelurahan']) ?>, Kec. <?= e(KECAMATAN) ?></td></tr>
+        <tr><th>RT</th><td><?= e($r['kelurahan']) ?>, <?= e(KECAMATAN) ?></td></tr>
         <tr><th>Alamat</th><td><?= e($r['alamat']) ?></td></tr>
         <tr><th>Pendapatan Bulanan</th><td><?= e(rupiah((float) $r['pendapatan_bulanan'])) ?></td></tr>
         <tr><th>Jumlah Tanggungan</th><td><?= e($r['jumlah_tanggungan']) ?> orang</td></tr>

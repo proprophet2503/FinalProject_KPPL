@@ -12,7 +12,7 @@ if ($u) {
         $ctaText = 'Buka Dashboard';
     } elseif (($u['status'] ?? '') === 'approved') {
         $ctaHref = 'status.php';
-        $ctaText = 'Data Kelurahan Saya';
+        $ctaText = 'Data RT Saya';
     } else {
         $ctaHref = 'pending.php';
         $ctaText = 'Status Verifikasi';
@@ -25,7 +25,7 @@ page_header('Beranda');
     <span class="hero-badge">MCDM · Multi-Criteria Decision Making</span>
     <h1>Sistem Prioritas Penerima Bantuan Sosial</h1>
     <p class="lead">
-        Petugas kelurahan mendata rumah tangga di Kecamatan Sukolilo; sistem
+        Petugas RT mendata rumah tangga di RW Bumi Marina Emas; sistem
         menghitung skor kelayakan secara transparan dan konsisten berbasis
         kriteria majemuk, lengkap dengan rincian faktor penilaiannya.
     </p>

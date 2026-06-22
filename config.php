@@ -16,11 +16,12 @@ declare(strict_types=1);
 // ---------------------------------------------------------------------------
 // Database
 // ---------------------------------------------------------------------------
-const DB_HOST = 'localhost';
-const DB_NAME = 'bansos';
-const DB_USER = 'root';
-const DB_PASS = '';
+const DB_HOST = 'sql313.infinityfree.com';
+const DB_NAME = 'if0_42239138_bantuansosiallokal';
+const DB_USER = 'if0_42239138';
+const DB_PASS = 'KwwqN11A9tkjy';
 const DB_CHARSET = 'utf8mb4';
+
 
 // ---------------------------------------------------------------------------
 // Aplikasi
