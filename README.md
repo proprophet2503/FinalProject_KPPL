@@ -1,28 +1,117 @@
-# Sistem AI Penentu Prioritas Penerima Bantuan (Skala Mikro)
+# SiPrioritas Bansos — PHP + MySQL (InfinityFree)
 
-Prototipe KPPL — Kelompok 1. Sistem berbasis AI yang membantu pengurus RT/RW
-menentukan prioritas penerima bantuan sosial secara objektif dan transparan.
+Sistem prioritas penerima bantuan sosial skala mikro untuk **Kecamatan Sukolilo**.
+**Petugas** kelurahan mendata rumah tangga; sistem menghitung **skor prioritas
+(MCDM transparan)** beserta kategori kelayakan dan rincian faktornya. **Admin**
+memantau seluruh kecamatan, memverifikasi petugas, dan melihat riwayat penyaluran.
 
-## Fitur Utama
+**Link hosting (live):** _<!-- isi URL InfinityFree Anda di sini -->_
 
-| Use Case | Fitur | Endpoint |
-|----------|-------|----------|
-| UC-01 | Input Data Rumah Tangga (validasi E1, deteksi duplikat E2) | `POST /api/warga` |
-| UC-02 | Melihat Hasil Klasifikasi (skor 0–100 + kategori) | `GET /api/hasil`, `GET /api/hasil/{id}` |
-| UC-03 | Penjelasan Keputusan (kontribusi faktor dominan) | termasuk di detail |
-| UC-08 | Riwayat Penerima Bantuan per periode | `GET /api/riwayat/periode`, `GET /api/riwayat?periode=` |
+---
 
-## Tech Stack
+## Stack
+- **Backend:** PHP 8 native (PDO + prepared statements) — tanpa framework, tanpa Composer
+- **Database:** MySQL (impor `database.sql` via phpMyAdmin)
+- **Frontend:** HTML + CSS + JavaScript murni (HTML tertanam di `.php`)
+- **Hosting:** InfinityFree (gratis)
+- **Penilaian:** MCDM berbobot, identik dengan prototipe `legacy/app/ai_model.py`
 
-- **Backend:** FastAPI (Python)
-- **Frontend:** HTML5 + Tailwind CSS (CDN) + Vanilla JS (Fetch API), via Jinja2
-- **Database:** SQLite (file-based)
-- **AI Engine:** scikit-learn (Random Forest) + scoring MCDM berbobot yang transparan
+---
 
-## Mesin AI
+## Peran & Akses
 
-Skor prioritas (0–100) dihitung dengan pembobotan multi-kriteria (MCDM) yang
-transparan sehingga setiap kontribusi faktor dapat dijelaskan (UC-03):
+| Peran | Daftar? | Akses |
+|-------|---------|-------|
+| **Petugas** | Ya (register + login) | Memilih **1 kelurahan** saat daftar. Setelah **disetujui admin**: input & kelola data rumah tangga, lihat skor — **hanya di kelurahannya**. |
+| **Admin** | Tidak (preprogrammed, login saja) | Seluruh Kec. Sukolilo. Verifikasi petugas, dashboard semua data (filter kelurahan), riwayat penyaluran. |
+
+7 kelurahan Sukolilo (dropdown): Semolowaru, Nginden Jangkungan, Menur Pumpungan,
+Klampis Ngasem, Gebang Putih, Keputih, Medokan Semampir.
+
+### Akun default (password: `Admin#2026`)
+- **Admin:** NIK `0000000000000000` · `admin@bansos.local`
+- **Petugas contoh (Keputih, approved):** NIK `1111111111111111` · `petugas@bansos.local`
+
+> Ganti password setelah deploy (update kolom `password_hash` via phpMyAdmin).
+
+---
+
+## Fitur Utama (Use Case)
+
+| Use Case | Fitur | Halaman |
+|----------|-------|---------|
+| **UC-01** | Input Data Rumah Tangga (validasi + deteksi duplikat NIK) | `input.php` |
+| **UC-02 / UC-03** | Hasil Klasifikasi & Penjelasan (skor, kategori, faktor %) | `status.php`, `detail.php` |
+| **UC-04** | Rekomendasi/Peringkat penerima | `admin_dashboard.php` |
+| **UC-05** | Kelola Data (edit + hapus) | `input.php`, `detail.php` |
+| **UC-08** | Riwayat Penerima Bantuan per periode | `admin_riwayat.php` |
+| — | Verifikasi Petugas (approve/reject) | `admin_verifikasi.php` |
+
+---
+
+## Workflow
+
+### Petugas
+1. **Daftar** (`register.php`): NIK, nama, email, password, **pilih kelurahan**.
+2. Status awal **menunggu verifikasi** (`pending.php`).
+3. Admin **menyetujui** → bisa masuk dashboard petugas.
+   (Ditolak → layar "Ditolak".)
+4. **Input data** rumah tangga (`input.php`): nama KK, NIK KK, alamat, pendapatan,
+   tanggungan, kondisi rumah, aset, indikator sosial (semua dropdown/angka).
+5. Sistem hitung **skor + kategori** otomatis.
+6. **Lihat daftar** (`status.php`) — hanya kelurahannya; **detail** (`detail.php`)
+   menampilkan faktor %; bisa **Edit/Hapus**.
+
+### Admin
+1. **Login** (`login.php`).
+2. **Verifikasi petugas** (`admin_verifikasi.php`): Terima / Tolak / Nonaktifkan.
+3. **Dashboard** (`admin_dashboard.php`): peringkat semua rumah tangga se-Sukolilo,
+   **filter per kelurahan**, detail + penjelasan faktor.
+4. **Riwayat** (`admin_riwayat.php`): penerima per periode (berjalan + historis),
+   **filter kelurahan**.
+
+---
+
+## Struktur Proyek
+
+```
+FinalProject_KPPL/            (root repo = root deploy)
+├── index.php                Beranda publik (landing + CTA)
+├── register.php             Daftar petugas (+ pilih kelurahan)
+├── login.php / logout.php   Autentikasi (NIK + Email + Password)
+├── pending.php              Layar status verifikasi petugas
+├── status.php               Daftar data rumah tangga kelurahan (petugas)
+├── input.php                Tambah / edit data rumah tangga (petugas)
+├── detail.php               Detail skor + faktor + hapus (petugas)
+├── akun.php                 Ubah email/password (petugas)
+├── admin_dashboard.php      Peringkat + filter kelurahan (admin)
+├── admin_verifikasi.php     Verifikasi petugas (admin)
+├── admin_riwayat.php        Riwayat penerima per periode (admin)
+├── lib.php                  INTI: PDO, MCDM, validasi, auth, CRUD
+├── partials.php             Header / navbar / flash / footer
+├── config.php               Konfigurasi DB (EDIT saat deploy)
+├── assets/css/app.css  assets/js/app.js
+├── database.sql             Skema + seed (impor ke phpMyAdmin)
+├── docs/                    Dokumentasi (tidak diunggah ke htdocs)
+└── legacy/                  Prototipe Python lama (tidak diunggah)
+```
+
+---
+
+## Basis Data
+
+| Tabel | Isi |
+|-------|-----|
+| `users` | Petugas & admin. `nik`/`email` unik, `role`, `kelurahan`, `status` (pending/approved/rejected). |
+| `households` | Data rumah tangga: `petugas_id`, `kelurahan`, `nama_kk`, `nik_kk` (unik), `alamat`, 5 kriteria, `skor`, `kategori`, `faktor_json`. |
+| `periode_bantuan` | Periode penyaluran (mis. "Januari 2026"). |
+| `penerima` | Penerima historis per periode (+ `kelurahan`). |
+
+---
+
+## Mekanisme Skor (MCDM)
+
+Skor 0–100, makin tinggi makin prioritas.
 
 | Kriteria | Bobot |
 |----------|-------|
@@ -32,108 +121,54 @@ transparan sehingga setiap kontribusi faktor dapat dijelaskan (UC-03):
 | Kepemilikan Aset | 0.15 |
 | Indikator Sosial | 0.10 |
 
-Kategori: **Sangat Layak** (skor > 75), **Layak** (50–75), **Kurang Layak** (< 50).
+Normalisasi: pendapatan ≤0→100, ≥Rp5.000.000→0, selainnya `(1−p/5.000.000)×100`;
+tanggungan ≤0→0, ≥7→100, selainnya `(t/7)×100`; kondisi Rusak Berat 100 / Rusak
+Sedang 60 / Layak 10; aset Rendah 100 / Sedang 50 / Tinggi 10; indikator
+Disabilitas 100 / Sakit Kronis 90 / Lansia 80 / Anak Putus Sekolah 70 / Tidak Ada 10.
+**Kategori:** >75 Sangat Layak · 50–75 Layak · <50 Kurang Layak.
 
-Model Random Forest dilatih pada dataset dummy (`data/dummy_dataset.csv`) yang
-diberi label memakai skor MCDM sebagai ground-truth, lalu disimpan ke
-`data/model_rf.pkl` sebagai cross-check klasifikasi.
+---
 
-## Struktur Proyek
+## Validasi Input
 
-```
-app/
-  __init__.py
-  main.py            # entry FastAPI, halaman HTML, lifespan init DB
-  database.py        # akses SQLite (warga, hasil_klasifikasi, riwayat_bantuan)
-  ai_model.py        # scoring MCDM + Random Forest + generator dataset
-  models/
-    schemas.py       # Pydantic + validasi domain (UC-01)
-  routes/
-    api.py           # endpoint REST ketiga fitur
-  templates/         # index, input, hasil, detail, riwayat (Jinja2 + Tailwind)
-  static/
-    js/app.js        # logika frontend (BansosApp)
-    css/app.css
-data/                # bansos.db, dummy_dataset.csv, model_rf.pkl (generated)
-tests/               # pytest: validasi, scoring, API
-```
+| Field | Aturan |
+|-------|--------|
+| NIK (petugas & KK) | 16 digit angka; unik |
+| Nama | tidak boleh mengandung angka |
+| Email | format valid; unik |
+| Password | minimal 8 karakter |
+| Pendapatan | angka saja (format rupiah otomatis), maks Rp 1.000.000.000 |
+| Jumlah tanggungan | bilangan bulat, maks 20 |
+| Kondisi/Aset/Indikator/Kelurahan | wajib dipilih dari **dropdown** |
 
-## Cara Menjalankan
+JS hanya bantu format di klien; validasi otoritatif di server.
 
-### 1. Siapkan environment & dependency
+---
 
-```bash
-cd FinalProject_KPPL
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
+## Deploy ke InfinityFree
 
-### 2. (Opsional) Latih ulang model & dataset dummy
+1. **Buat database MySQL** di Control Panel → catat host, nama DB, user, password.
+2. **phpMyAdmin** → pilih DB → tab **Import** → unggah `database.sql` → **Go**.
+3. **Edit `config.php`** → isi `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`.
+4. **Upload** semua `*.php` + folder `assets/` ke `htdocs/`.
+   **Jangan** upload: `database.sql`, `docs/`, `legacy/`, `.git/`.
+5. Buka domain.
 
-```bash
-python -m app.ai_model
-# -> menghasilkan data/dummy_dataset.csv dan data/model_rf.pkl
-```
+### Jalankan lokal (XAMPP/Laragon)
+Buat DB `bansos`, impor `database.sql`, biarkan `config.php` default
+(`localhost`/`root`/kosong), taruh berkas di `htdocs/`, buka `http://localhost/`.
 
-Langkah ini opsional: scoring tetap berjalan tanpa file `.pkl` (Random Forest
-hanya dipakai sebagai cross-check). DB dan seed riwayat dibuat otomatis saat
-server start.
+---
 
-### 3. Jalankan backend
+## Keamanan
+- Password di-hash `password_hash()` (bcrypt); login `password_verify()`.
+- Prepared statements (anti SQL injection); output di-escape (anti XSS).
+- Token CSRF pada semua form POST; `session_regenerate_id()` setelah login.
+- Scoping: petugas hanya akses data kelurahannya; akun aktif setelah diverifikasi admin.
 
-```bash
-uvicorn app.main:app --reload
-```
-
-Buka `http://127.0.0.1:8000`:
-
-- `/`         — Dashboard ringkasan
-- `/input`    — Formulir input data rumah tangga (UC-01)
-- `/hasil`    — Tabel hasil klasifikasi (UC-02)
-- `/detail/{id}` — Detail skor + penjelasan faktor (UC-02/UC-03)
-- `/riwayat`  — Riwayat penerima per periode (UC-08)
-
-Dokumentasi API otomatis tersedia di `http://127.0.0.1:8000/docs`.
-
-### 4. Menjalankan test
-
-```bash
-pytest
-```
-
-Cakupan test: validasi input (UC-01/E1/E2), logika scoring & kategori (UC-02),
-dan integrasi endpoint API ketiga fitur.
-
-## Deployment
-
-### Demo statis di GitHub Pages (`docs/index.html`)
-
-`docs/index.html` adalah **port klien-penuh** (HTML+JS, tanpa backend) dari
-prototipe ini. Mesin skor MCDM dan aturan validasi di-port 1:1 dari
-`app/ai_model.py` dan `app/models/schemas.py` (parity sudah diverifikasi:
-input contoh menghasilkan skor 72.03 / "Layak" identik di Python dan JS).
-"Database" memakai `localStorage`; data riwayat (Januari 2026 & Maret 2026)
-di-seed otomatis. Mencakup UC-01 (input+validasi), UC-02/UC-03 (hasil, detail,
-penjelasan faktor), dan UC-08 (riwayat per periode).
-
-Mengaktifkan GitHub Pages:
-
-1. Commit & push folder `docs/` ke branch `main`.
-2. Repo GitHub → **Settings → Pages** → Source: **Deploy from a branch** →
-   Branch: `main`, Folder: `/docs` → **Save**.
-3. Situs live di `https://proprophet2503.github.io/FinalProject_KPPL/`
-   (beberapa menit setelah save).
-
-Demo dapat juga dibuka langsung tanpa server: cukup buka `docs/index.html`
-di browser (double-click).
-
-### Backend penuh (FastAPI)
-
-- **Frontend (Jinja2):** disajikan langsung oleh FastAPI untuk demo lokal.
-- **Backend:** dijalankan lokal via Uvicorn. CORS dibuka longgar untuk demo.
+---
 
 ## Catatan
-
-Sistem hanya memberi **rekomendasi**; keputusan akhir distribusi bantuan tetap
-berada di tangan pengurus RT/RW (sesuai batasan fungsional DPPL §3.3.1).
+Sistem hanya memberi **rekomendasi**; keputusan akhir distribusi tetap pada
+pengurus/pihak berwenang. Prototipe Python (FastAPI) lama diarsipkan di `legacy/`
+(lihat `docs/DOKUMENTASI_LEGACY.md`).

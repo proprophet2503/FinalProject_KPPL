@@ -15,3 +15,7 @@ data/model_rf.pkl
 .DS_Store
 .idea/
 .vscode/
+
+# Uploaded profile pictures (runtime, not source)
+uploads/*
+!uploads/.htaccess
